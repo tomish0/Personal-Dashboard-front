@@ -1,0 +1,8 @@
+{
+  "jumper": { "number": 189, "percentage": 18.9 },
+  "hoodie": { "number": 153, "percentage": 15.299999999999999 },
+  "jacket": { "number": 171, "percentage": 17.1 },
+  "sweater": { "number": 170, "percentage": 17 },
+  "blazer": { "number": 146, "percentage": 14.6 },
+  "raincoat": { "number": 171, "percentage": 17.1 }
+}
