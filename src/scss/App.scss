@@ -1,6 +1,11 @@
+@import "variables.scss";
+
 .App {
     background-position: center;
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    font-family: main-font;
+    padding: 30px;
+    font-size: 20px;
 }

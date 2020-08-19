@@ -7,30 +7,57 @@ import PhotosLink from "./Photos/PhotosLink";
 import TasksLink from "./Tasks/TasksLink";
 import ClothesLink from "./Clothes/ClothesLink";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
-
+import "../../../css/Dashboard.css";
 
 function Dashboard(props) {
   return (
-    <div>
+    <div className="dashboard-container">
       <WelcomeMessage username={props.username} />
-      <div className="route-link">
-        <WeatherLink />
+      <div className='grid-container'>
+        <div className="route-link">
+          <h2>Weather</h2>
+          <WeatherLink />
+        </div>
+        <Link
+          to="/News"
+          className="route-link"
+          onClick={() => props.setHome(false)}
+        >
+          <h2>News</h2>
+          <NewsLink
+            currentNews={props.currentNews}
+            setCurrentNews={props.setCurrentNews}
+          />
+        </Link>
+        <Link
+          to="/Sport"
+          className="route-link"
+          onClick={() => props.setHome(false)}
+        >
+          <h2>Sport</h2>
+          <SportLink />
+        </Link>
+        <Link
+          to="/Photos"
+          className="route-link"
+          onClick={() => props.setHome(false)}
+        >
+          <h2>Photos</h2>
+          <PhotosLink />
+        </Link>
+        <Link
+          to="/Tasks"
+          className="route-link"
+          onClick={() => props.setHome(false)}
+        >
+          <h2>Tasks</h2>
+          <TasksLink />
+        </Link>
+        <div className="route-link">
+          Clothes
+          <ClothesLink />
+        </div>
       </div>
-      <Link to="/News" className="route-link">
-        <NewsLink currentNews={props.currentNews} setCurrentNews={props.setCurrentNews} />
-      </Link>
-      <Link to="/Sport" className="route-link">
-        <SportLink />
-      </Link>
-      <Link to="/Photos" className="route-link">
-        <PhotosLink />
-      </Link>
-      <Link to="/Tasks" className="route-link">
-        <TasksLink />
-      </Link>
-      <Link to="/Clothes" className="route-link">
-        <ClothesLink />
-      </Link>
     </div>
   );
 }

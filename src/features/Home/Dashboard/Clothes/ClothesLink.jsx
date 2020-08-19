@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 import data from "../../../../Assets/clothesPercentages.json";
@@ -18,7 +18,6 @@ function ClothesLink() {
         ]}
         label={({ dataEntry }) => dataEntry.title}
       />
-      ;
     </div>
   );
 }

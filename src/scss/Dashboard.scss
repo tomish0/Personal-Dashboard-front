@@ -1,0 +1,9 @@
+.dashboard-container {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+        justify-items: center;
+        margin: 0 auto;
+        justify-content: center;  
+    }
+}

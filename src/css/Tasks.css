@@ -1,0 +1,57 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.tasks-container .tasks-plus-btn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tasks-container .tasks-plus-btn .each-task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+  margin: 15px 0 15px 0;
+}
+
+.tasks-container .tasks-plus-btn .each-task input {
+  font-family: main-font;
+  border: none;
+  background: none;
+  border-bottom: 2px solid white;
+  color: white;
+  outline: none;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.tasks-container .tasks-plus-btn .each-task ::-webkit-input-placeholder {
+  color: white;
+}
+
+.tasks-container .tasks-plus-btn .each-task :-ms-input-placeholder {
+  color: white;
+}
+
+.tasks-container .tasks-plus-btn .each-task ::-ms-input-placeholder {
+  color: white;
+}
+
+.tasks-container .tasks-plus-btn .each-task ::placeholder {
+  color: white;
+}
+
+.tasks-container .tasks-plus-btn .each-task input[type="checkbox"] {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+/*# sourceMappingURL=Tasks.css.map */

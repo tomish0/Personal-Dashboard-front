@@ -1,0 +1,12 @@
+.dashboard-container .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 400px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+  justify-items: center;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=Dashboard.css.map */

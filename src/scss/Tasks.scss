@@ -1,0 +1,31 @@
+@import "variables.scss";
+
+.tasks-container {
+  .tasks-plus-btn {
+    width: 80%;
+    margin: 0 auto;
+    .each-task {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      margin: 15px 0 15px 0;
+      input {
+        font-family: main-font;
+        border: none;
+        background: none;
+        border-bottom: 2px solid white;
+        color: white;
+        outline: none;
+        width: 100%;
+        font-size: 0.9em;
+      }
+      ::placeholder {
+        color: white;
+      }
+      input[type="checkbox"] {
+        width: max-content;
+      }
+    }
+  }
+}
