@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
@@ -9,7 +9,7 @@ function SignUp(props) {
     username: "",
     email: "",
     password: "",
-    passwordCopy: "",
+    checkPassword: "",
   });
 
   const [signUpFail, setSignUpFail] = useState({
@@ -25,6 +25,25 @@ function SignUp(props) {
       [e.target.name]: e.target.value,
     });
   };
+
+  const [preValidation, setPreValidation] = useState({
+    // state used to check password data is valid before being sent to db
+    passwordLength: false,
+    checkPasswordLength: false,
+    matchPassword: false,
+  });
+
+  useEffect(() => {
+    // useEffect used to check password data is 8 characters or more, plus two passwords match
+    setPreValidation({
+      ...preValidation,
+      passwordLength: signUpDetails.password.length >= 8 ? true : false,
+      checkPasswordLength:
+        signUpDetails.checkPassword.length >= 8 ? true : false,
+      matchPassword:
+        signUpDetails.checkPassword === signUpDetails.password ? true : false,
+    });
+  }, [signUpDetails]);
 
   const handleSubmit = () => {
     const url = "http://localhost:5000/user/sign-up";
@@ -51,6 +70,7 @@ function SignUp(props) {
         }
         if (res.data.username) {
           props.setAppOnline(true);
+          props.setUsername(res.data.username);
         }
       })
       .catch((err) => {
@@ -87,26 +107,34 @@ function SignUp(props) {
         />
         <input
           type="text"
-          name="passwordCopy"
+          name="checkPassword"
           placeholder={"Confirm password"}
-          value={signUpDetails.passwordCopy}
+          value={signUpDetails.checkPassword}
           onChange={handleSignUpDetails}
         />
       </div>
-      {signUpFail.err ? (
-        <div>Please fill in your details</div>
-      ) : signUpFail.username && signUpFail.email ? (
-        <div>Both the username and email are already taken</div>
-      ) : signUpFail.username ? (
-        <div>The username is already taken</div>
-      ) : signUpFail.email ? (
-        <div>This email is already taken </div>
-      ) : null}
-      <Button btnMessage={"Sign Up"} onClick={handleSubmit} />
-      Already Registered?
-      <Link to="/Login">
-        <Button btnMessage={"Login"} className={"login-sign-up-route"} />
-      </Link>
+      <div className="error-messages">
+        {signUpFail.err ? (
+          <div>Please fill in your details</div>
+        ) : signUpFail.username && signUpFail.email ? (
+          <div>Both the username and email are already taken</div>
+        ) : signUpFail.username ? (
+          <div>The username is already taken</div>
+        ) : signUpFail.email ? (
+          <div>This email is already taken </div>
+        ) : null}
+      </div>
+      <div className='buttons-app-nav-position'>
+        <div className="buttons-app-nav">
+          <Button btnMessage={"Register"} onClick={handleSubmit} />
+          <div>
+            Already Registered?
+            <Link to="/Login">
+              <Button btnMessage={"Login"} className={"login-sign-up-route"} />
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

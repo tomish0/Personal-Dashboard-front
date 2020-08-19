@@ -22,6 +22,9 @@ function Home(props) {
         <Route path="/" exact component={Home}>
           <Redirect to="/Home" />
         </Route>
+        <Route exact path="/:a(login|signup)">
+          <Redirect to="/Home" />
+        </Route>
         <Route
           exact
           path="/News"

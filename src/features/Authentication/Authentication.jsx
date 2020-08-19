@@ -6,23 +6,35 @@ import "../../css/Authentication.css";
 
 function Authentication(props) {
   return (
-    <div className="authentication-container">
-      <h1>Dev Challenge</h1>
-      <Switch>
-        <Route
-          exact
-          path="/Sign-Up"
-          component={() => <SignUp setAppOnline={props.setAppOnline} />}
-        />
-        <Route
-          exact
-          path="/Login"
-          component={() => <Login setAppOnline={props.setAppOnline} />}
-        />
-        <Route exact path="/">
-          <Redirect to="/Login" />
-        </Route>
-      </Switch>
+    <div className="authentication-position">
+      <div className="authentication-container">
+        <h1>Dev Challenge</h1>
+        <Switch>
+          <Route
+            exact
+            path="/Sign-Up"
+            component={() => (
+              <SignUp
+                setAppOnline={props.setAppOnline}
+                setUsername={props.setUsername}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/Login"
+            component={() => (
+              <Login
+                setAppOnline={props.setAppOnline}
+                setUsername={props.setUsername}
+              />
+            )}
+          />
+          <Route exact path=":a(.+)">
+            <Redirect to="/Login" />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }

@@ -32,6 +32,7 @@ function Login(props) {
         console.log(res);
         if (res.data.user === 0) {
           props.setAppOnline(true);
+          props.setUsername(loginDetails.username);
         } else {
           setLoginFail(true);
         }
@@ -61,11 +62,20 @@ function Login(props) {
         />
       </div>
       {loginFail ? <div>Your username or password is incorrect</div> : null}
-      <Button btnMessage={"Login"} onClick={handleSubmit} />
-      New to the challenge?
-      <Link to="/Sign-Up">
-        <Button btnMessage={"Sign Up"} className={"login-sign-up-route"} />
-      </Link>
+      <div className="buttons-app-nav-position">
+        <div className="buttons-app-nav">
+          <Button btnMessage={"Login"} onClick={handleSubmit} />
+          <div>
+            New to the challenge?
+            <Link to="/Sign-Up">
+              <Button
+                btnMessage={"Sign Up"}
+                className={"login-sign-up-route"}
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

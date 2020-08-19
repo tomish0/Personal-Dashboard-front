@@ -1,17 +1,13 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
 .login-container,
 .sign-up-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0 auto;
   width: 100%;
+  height: 100%;
+  color: white;
 }
 
 .login-container .adjacent-input,
@@ -21,7 +17,8 @@
   display: flex;
   height: 30px;
   margin: 15px 0 15px 0;
-  margin: 0 auto;
+  width: 100%;
+  margin: 50px auto;
 }
 
 .login-container .adjacent-input input,
@@ -30,9 +27,9 @@
   border: none;
   background: none;
   border-bottom: 2px solid white;
-  color: white;
   font-size: 0.9em;
   margin: 0 auto;
+  width: 40%;
 }
 
 .login-container .adjacent-input ::-webkit-input-placeholder,
@@ -53,5 +50,46 @@
 .login-container .adjacent-input ::placeholder,
 .sign-up-container .adjacent-input ::placeholder {
   color: white;
+}
+
+.login-container .buttons-app-nav-position,
+.sign-up-container .buttons-app-nav-position {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.login-container .buttons-app-nav-position .buttons-app-nav,
+.sign-up-container .buttons-app-nav-position .buttons-app-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-container .buttons-app-nav-position .buttons-app-nav button,
+.sign-up-container .buttons-app-nav-position .buttons-app-nav button {
+  margin: 10px auto;
+}
+
+.login-container .buttons-app-nav-position .buttons-app-nav .login-sign-up-route,
+.sign-up-container .buttons-app-nav-position .buttons-app-nav .login-sign-up-route {
+  background: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 1em;
+  color: #ffe260;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=LoginSignUp.css.map */

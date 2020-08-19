@@ -7,12 +7,14 @@ import "./css/App.css";
 function App() {
   const [appOnline, setAppOnline] = useState(false);
 
+  const [username, setUsername] = useState('')
+
   return (
     <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
       {appOnline ? (
-        <Home username={"Swapnil"} />
+        <Home username={username} />
       ) : (
-        <Authentication setAppOnline={setAppOnline} />
+        <Authentication setAppOnline={setAppOnline} setUsername={setUsername}/>
       )}
     </div>
   );

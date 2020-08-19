@@ -1,31 +1,48 @@
+@import "variables.scss";
+
 .login-container,
 .sign-up-container {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-margin: 0 auto;
-width: 100%;
-
-
+  width: 100%;
+  height: 100%;
+  color: white;
   .adjacent-input {
     display: flex;
-    // align-items: center;
-    // justify-content: flex-end;
     height: 30px;
     margin: 15px 0 15px 0;
-    // width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 50px auto;
     input {
       font-family: main-font;
       border: none;
       background: none;
       border-bottom: 2px solid white;
-      color: white;
       font-size: 0.9em;
       margin: 0 auto;
+      width: 40%;
     }
     ::placeholder {
       color: white;
+    }
+  }
+  .buttons-app-nav-position {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .buttons-app-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      button {
+        margin: 10px auto;
+      }
+      .login-sign-up-route {
+        background: none;
+        width: max-content;
+        font-size: 1em;
+        color: $color-yellow;
+        align-items: center;
+      }
     }
   }
 }

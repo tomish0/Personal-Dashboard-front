@@ -25,7 +25,6 @@
 .tasks-container .tasks-plus-btn .each-task input {
   font-family: main-font;
   border: none;
-  background: none;
   border-bottom: 2px solid white;
   color: white;
   width: 100%;
