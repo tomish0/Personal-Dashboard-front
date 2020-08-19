@@ -1,0 +1,57 @@
+.login-container,
+.sign-up-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login-container .adjacent-input,
+.sign-up-container .adjacent-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  margin: 15px 0 15px 0;
+  margin: 0 auto;
+}
+
+.login-container .adjacent-input input,
+.sign-up-container .adjacent-input input {
+  font-family: main-font;
+  border: none;
+  background: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 0.9em;
+  margin: 0 auto;
+}
+
+.login-container .adjacent-input ::-webkit-input-placeholder,
+.sign-up-container .adjacent-input ::-webkit-input-placeholder {
+  color: white;
+}
+
+.login-container .adjacent-input :-ms-input-placeholder,
+.sign-up-container .adjacent-input :-ms-input-placeholder {
+  color: white;
+}
+
+.login-container .adjacent-input ::-ms-input-placeholder,
+.sign-up-container .adjacent-input ::-ms-input-placeholder {
+  color: white;
+}
+
+.login-container .adjacent-input ::placeholder,
+.sign-up-container .adjacent-input ::placeholder {
+  color: white;
+}
+/*# sourceMappingURL=LoginSignUp.css.map */

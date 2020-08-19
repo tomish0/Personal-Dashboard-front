@@ -1,0 +1,40 @@
+.each-task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+  margin: 15px 0 15px 0;
+}
+
+.each-task input {
+  font-family: main-font;
+  border: none;
+  background: none;
+  border-bottom: 2px solid white;
+  color: white;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.each-task ::-webkit-input-placeholder {
+  color: white;
+}
+
+.each-task :-ms-input-placeholder {
+  color: white;
+}
+
+.each-task ::-ms-input-placeholder {
+  color: white;
+}
+
+.each-task ::placeholder {
+  color: white;
+}
+/*# sourceMappingURL=Login.css.map */

@@ -1,0 +1,31 @@
+.login-container,
+.sign-up-container {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin: 0 auto;
+width: 100%;
+
+
+  .adjacent-input {
+    display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    height: 30px;
+    margin: 15px 0 15px 0;
+    // width: 80%;
+    margin: 0 auto;
+    input {
+      font-family: main-font;
+      border: none;
+      background: none;
+      border-bottom: 2px solid white;
+      color: white;
+      font-size: 0.9em;
+      margin: 0 auto;
+    }
+    ::placeholder {
+      color: white;
+    }
+  }
+}

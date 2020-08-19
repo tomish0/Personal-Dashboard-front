@@ -1,0 +1,16 @@
+@import "variables.scss";
+
+.authentication-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+.login-sign-up-route {
+    background: none;
+    width: max-content;
+    font-size: 1em;
+    color:  $color-yellow;
+    align-items: center;
+    margin: 0 auto;
+}
+}

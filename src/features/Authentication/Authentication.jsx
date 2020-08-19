@@ -1,31 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
-import Button from "../Button/Button";
+import "../../css/Authentication.css";
 
 function Authentication(props) {
-  const [newUser, setNewUser] = useState(false);
-
   return (
-    <div>
+    <div className="authentication-container">
       <h1>Dev Challenge</h1>
-      {!newUser ? (
-        <div>
-          <Login />
-          <div>
-            New to the challenge?
-            <Button onClick={() => setNewUser(true)} btnMessage={"Sign Up"} />
-          </div>
-        </div>
-      ) : (
-        <div>
-          <SignUp />
-          <div>
-            Already Registered?
-            <Button onClick={() => setNewUser(false)} btnMessage={"Login"} />
-          </div>
-        </div>
-      )}
+      <Switch>
+        <Route
+          exact
+          path="/Sign-Up"
+          component={() => <SignUp setAppOnline={props.setAppOnline} />}
+        />
+        <Route
+          exact
+          path="/Login"
+          component={() => <Login setAppOnline={props.setAppOnline} />}
+        />
+        <Route exact path="/">
+          <Redirect to="/Login" />
+        </Route>
+      </Switch>
     </div>
   );
 }

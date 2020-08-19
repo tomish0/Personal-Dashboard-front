@@ -1,0 +1,34 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.authentication-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.authentication-container .login-sign-up-route {
+  background: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 1em;
+  color: #ffe260;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=Authentication.css.map */
