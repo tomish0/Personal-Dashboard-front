@@ -53,6 +53,7 @@ export const photosSlice = createSlice({
     addAllPhotos: (state, action) => {
       console.log('called', action.payload, state.allPhotos);
       state.allPhotos = action.payload;
+      console.log(state.allPhotos, state);
     },
     addNewPhoto: (state, action) => {
       state.newPhoto = action.payload;

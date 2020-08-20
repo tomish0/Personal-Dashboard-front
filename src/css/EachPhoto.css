@@ -1,0 +1,19 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.image-container {
+  height: 260px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border: 2px solid #ffe260;
+  border-radius: 10px;
+}
+
+.image-container .image {
+  height: 100%;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=EachPhoto.css.map */

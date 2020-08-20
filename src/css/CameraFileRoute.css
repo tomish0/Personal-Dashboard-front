@@ -1,0 +1,71 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.camera-file-route-result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.camera-file-route-result-container .camera-file-route-container {
+  position: relative;
+  height: 260px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border: 2px solid #ffe260;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.camera-file-route-result-container .camera-file-route-container .position {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.camera-file-route-result-container .camera-file-route-container .position .take-new-photo {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.camera-file-route-result-container .camera-file-route-container .position .find-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.camera-file-route-result-container .add-new-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.camera-file-route-result-container .add-new-photo button {
+  margin: 10px;
+}
+/*# sourceMappingURL=CameraFileRoute.css.map */

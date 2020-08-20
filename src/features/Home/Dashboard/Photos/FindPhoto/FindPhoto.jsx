@@ -12,7 +12,6 @@ function FindPhoto(props) {
 
   return (
     <div>
-      find photo
       <input type="file" accept="image/*" onChange={handleNewPhoto} />
     </div>
   );

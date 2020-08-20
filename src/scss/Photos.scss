@@ -1,0 +1,7 @@
+.photos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    justify-items: center;
+    margin: 0 auto;
+    justify-content: center;  
+}

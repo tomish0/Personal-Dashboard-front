@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import sportData from "../../../../Assets/sportData.json";
+import "../../../../css/Sport.css";
 
+function Sport() {
+  const [beatenTeams, setBeatenTeams] = useState([]);
 
-
-function Sport(props) {
-
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const beatenTeams = [];
+    sportData.forEach((item) => {
+      if (item.H.toLowerCase() === value && item.FTR === "H") {
+        beatenTeams.push(item.A);
+      }
+      if (item.A.toLowerCase() === value && item.FTR === "A") {
+        beatenTeams.push(item.H);
+      }
+    });
+    setBeatenTeams(beatenTeams);
+  };
 
   return (
-    <div>
-      <Link to="/Home">Back</Link> 
-        sport
+    <div className="sport-container">
+      <Link to="/Home">Back</Link>
+      <h1>Champion's League Challenge</h1>
+      <div className='input-result-container'>
+        <input
+          type="text"
+          placeholder="Input winning team..."
+          onChange={handleChange}
+          className="sport-input"
+        />
+        <div className="beaten-teams">
+          {beatenTeams.map((team, index) => {
+            return (
+              <div key={index} className='each-team'>
+                Team {index + 1}: <span>{team}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

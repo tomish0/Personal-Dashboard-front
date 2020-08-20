@@ -9,6 +9,6 @@ export default configureStore({
     home: homeSlice,
     login: loginSlice,
     signUp: signUpSlice,
-    photosSlice: photosSlice,
+    photos: photosSlice,
   },
 });

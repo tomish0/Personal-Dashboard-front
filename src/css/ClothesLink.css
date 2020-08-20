@@ -1,0 +1,15 @@
+.clothes-link-container {
+  padding: 10px;
+  position: relative;
+  height: 160px;
+}
+
+.clothes-link-container .pie-chart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 290px;
+}
+/*# sourceMappingURL=ClothesLink.css.map */

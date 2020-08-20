@@ -1,9 +1,27 @@
+@import "./variables.scss";
+
 .dashboard-container {
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
-        justify-items: center;
-        margin: 0 auto;
-        justify-content: center;  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    justify-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    section {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        border: 2px solid $color-yellow;
+        border-radius: 10px;
+        margin: 10px;
+      .route-link {
+        text-decoration: none;
+        color: black;
+        h2 {
+            background-color: $color-yellow;
+
+        }
+      }
     }
+  }
 }

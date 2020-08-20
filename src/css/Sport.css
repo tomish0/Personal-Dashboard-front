@@ -1,0 +1,66 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.sport-container {
+  color: white;
+}
+
+.sport-container h1 {
+  text-align: center;
+}
+
+.sport-container .input-result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sport-container .input-result-container input {
+  color: white;
+  border: 2px solid #ffe260;
+  width: 80%;
+  text-align: center;
+  padding: 8px;
+  font-size: 1em;
+  margin: 10px;
+}
+
+.sport-container .input-result-container ::-webkit-input-placeholder {
+  color: white;
+}
+
+.sport-container .input-result-container :-ms-input-placeholder {
+  color: white;
+}
+
+.sport-container .input-result-container ::-ms-input-placeholder {
+  color: white;
+}
+
+.sport-container .input-result-container ::placeholder {
+  color: white;
+}
+
+.sport-container .input-result-container .beaten-teams .each-team {
+  border-bottom: 1px solid white;
+  margin: 10px;
+}
+
+.sport-container .input-result-container .beaten-teams .each-team span {
+  color: #ffe260;
+  font-weight: 1000;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=Sport.css.map */

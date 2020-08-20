@@ -26,7 +26,7 @@ export const login = createAsyncThunk(
       .catch((err) => {
         console.dir(err);
         thunkAPI.dispatch(failedLogin());
-    });
+      });
   }
 );
 
@@ -34,7 +34,7 @@ export const login = createAsyncThunk(
 export const loginSlice = createSlice({
   name: "login",
   initialState: {
-    userId: '',
+    userId: "",
     username: "",
     failedLogin: false,
   },
@@ -43,6 +43,7 @@ export const loginSlice = createSlice({
       const { userId, username } = action.payload;
       state.userId = userId;
       state.username = username;
+      
     },
     failedLogin: (state) => {
       state.failedLogin = true;

@@ -13,46 +13,46 @@ function Dashboard(props) {
   return (
     <div className="dashboard-container">
       <WelcomeMessage username={props.username} />
-      <div className='grid-container'>
-        <div className="route-link">
-          <h2>Weather</h2>
-          <WeatherLink />
-        </div>
-        <Link
-          to="/News"
-          className="route-link"
-        >
-          <h2>News</h2>
-          <NewsLink
-            currentNews={props.currentNews}
-            setCurrentNews={props.setCurrentNews}
-          />
-        </Link>
-        <Link
-          to="/Sport"
-          className="route-link"
-        >
-          <h2>Sport</h2>
-          <SportLink />
-        </Link>
-        <Link
-          to="/Photos"
-          className="route-link"
-        >
-          <h2>Photos</h2>
-          <PhotosLink />
-        </Link>
-        <Link
-          to="/Tasks"
-          className="route-link"
-        >
-          <h2>Tasks</h2>
-          <TasksLink />
-        </Link>
-        <div className="route-link">
-          Clothes
-          <ClothesLink />
-        </div>
+      <div className="grid-container">
+        <section>
+          <div className="route-link">
+            <h2>Weather</h2>
+            <WeatherLink />
+          </div>
+        </section>
+        <section>
+          <Link to="/News" className="route-link">
+            <h2>News</h2>
+            <NewsLink
+              currentNews={props.currentNews}
+              setCurrentNews={props.setCurrentNews}
+            />
+          </Link>
+        </section>
+        <section>
+          <Link to="/Sport" className="route-link">
+            <h2>Sport</h2>
+            <SportLink />
+          </Link>
+        </section>
+        <section>
+          <Link to="/Photos" className="route-link">
+            <h2>Photos</h2>
+            <PhotosLink />
+          </Link>
+        </section>
+        <section>
+          <Link to="/Tasks" className="route-link">
+            <h2>Tasks</h2>
+            <TasksLink />
+          </Link>
+        </section>
+        <section>
+          <div className="route-link">
+            <h2>Clothes</h2>
+            <ClothesLink />
+          </div>
+        </section>
       </div>
     </div>
   );

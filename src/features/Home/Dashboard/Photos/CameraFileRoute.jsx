@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import { addPhoto } from "./photosSlice";
+import EachPhoto from "./EachPhoto";
 import UseCamera from "./UseCamera/UseCamera";
 import FindPhoto from "./FindPhoto/FindPhoto";
 import Button from "../../../Button/Button";
-import addPicture from "../../../../Assets/Add_picture.png";
 import plusIcon from "../../../../Assets/Plus_button.png";
+import "../../../../css/CameraFileRoute.css";
 
 function CameraFileRoute(props) {
   const dispatch = useDispatch();
@@ -38,25 +39,29 @@ function CameraFileRoute(props) {
     <div>
       {!useCamera ? (
         !pictureOn ? (
-          <div
-            className="img-add-picture-container"
-            onClick={() => setPictureOn(true)}
-          >
-            <img src={addPicture} />
-            <img src={plusIcon} />
+          <div onClick={() => setPictureOn(true)}>
+            <EachPhoto photo={plusIcon} />
           </div>
         ) : (
-          <div>
-            <img src={addPicture} />
-            <div onClick={() => setUseCamera(true)}>Take a new phtoto</div>
-            <div>
-              Select image from your device
-              <FindPhoto setPhoto={setPhoto} />
+          <div className="camera-file-route-result-container">
+            <div className="camera-file-route-container">
+              <div className="position">
+                <div
+                  onClick={() => setUseCamera(true)}
+                  className="take-new-photo"
+                >
+                  Take a new phtoto
+                </div>
+                <div className="find-photo">
+                  Or
+                  <FindPhoto setPhoto={setPhoto} />
+                </div>
+              </div>
             </div>
             {photo.length === undefined || photo.length > 0 ? (
-              <div>
+              <div className="add-new-photo">
+                <EachPhoto photo={photo} />
                 <Button btnMessage={"Add Photo"} onClick={handleAddPhoto} />
-                <img src={photo} alt="" />
               </div>
             ) : null}
           </div>

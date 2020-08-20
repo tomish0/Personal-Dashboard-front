@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,UAAU;EACN,WAAW,EAAE,SAAS;EACtB,GAAG,EAAE,qCAAqC;;;ADA9C,AAAA,gBAAgB,CAAC;EACb,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,WAAW;EAClB,MAAM,EAAE,GAAG,CAAC,KAAK,CCAJ,OAAiB;EDC9B,aAAa,EAAE,IAAI;CAKtB;;AATD,AAKI,gBALY,CAKZ,MAAM,CAAC;EACH,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "../scss/EachPhoto.scss",
+        "../scss/variables.scss"
+    ],
+    "names": [],
+    "file": "EachPhoto.css"
+}

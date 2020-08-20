@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      {loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
+      {true || loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
         <Home username={loginData.username} />
       ) : (
         <Authentication />
