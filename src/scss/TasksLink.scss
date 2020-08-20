@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.tasks-link-container {
+    margin-top: 10px;
+    .input-checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        .input-dummy {
+            width: 80%;
+            border-bottom: 2px solid black;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .checkbox {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 3px solid $color-yellow;
+            border-radius: 5px;
+            margin-bottom: 15px;
+
+        }
+    }
+}

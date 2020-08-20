@@ -1,0 +1,11 @@
+.back-button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.back-button .link {
+  text-decoration: none;
+  color: white;
+}
+/*# sourceMappingURL=BackButton.css.map */

@@ -1,10 +1,11 @@
 import React from 'react';
+import "../../../css/WelcomeMessage.css"
 
 function WelcomeMessage(props) {
     return (
-        <div>
+        <h1>
             Good day {props.username}
-        </div>
+        </h1>
     );
 }
 

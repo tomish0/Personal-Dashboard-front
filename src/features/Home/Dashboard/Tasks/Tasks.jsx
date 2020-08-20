@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import plusIcon from "../../../../Assets/Plus_button_small.png";
-import Button from "../../../Button/Button";
-import { Link } from "react-router-dom";
-
-
+import BackButton from "../../../Button/BackButton";
 import "../../../../css/Tasks.css";
 
-function Tasks(props) {
+function Tasks() {
   const task = { value: "", status: "" };
   const [allTasks, setAllTasks] = useState([task]);
 
@@ -36,9 +33,9 @@ function Tasks(props) {
 
   return (
     <div className="tasks-container">
-      <Link to="/Home">Back</Link> 
+      <BackButton />
       <h1>Tasks</h1>
-      <div className='tasks-plus-btn'>
+      <div className="tasks-plus-btn">
         {allTasks.map((item, index) => {
           return (
             <div className="each-task" key={index}>
@@ -46,7 +43,7 @@ function Tasks(props) {
                 type="text"
                 id={`id-${index}-value`}
                 name="value"
-                placeholder={"Task..."}
+                placeholder={`Task ${index + 1}...`}
                 value={allTasks[index].value}
                 onChange={(e) => handleNewTaskValue(e, index)}
               />

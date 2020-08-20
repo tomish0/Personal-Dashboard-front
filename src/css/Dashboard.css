@@ -31,5 +31,10 @@
 
 .dashboard-container .grid-container section .route-link h2 {
   background-color: #ffe260;
+  border-radius: 5px 5px 0 0;
+}
+
+.dashboard-container .grid-container section .route-link .link-container {
+  padding: 10px;
 }
 /*# sourceMappingURL=Dashboard.css.map */

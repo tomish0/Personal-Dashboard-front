@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLogin } from "../Login/loginSlice";
 import { selectSignUp } from "../SignUp/signUpSlice";
-import {getData} from "./homeSlice"
+import { getData } from "./homeSlice";
 import News from "./Dashboard/News/News";
 import Sport from "./Dashboard/Sport/Sport";
 import Photos from "./Dashboard/Photos/Photos";
@@ -13,9 +13,8 @@ import Dashboard from "./Dashboard/Dashboard";
 function Home(props) {
   const dispatch = useDispatch();
 
-
-const loginData = useSelector(selectLogin)
-const signUpData = useSelector(selectSignUp)
+  const loginData = useSelector(selectLogin);
+  const signUpData = useSelector(selectSignUp);
 
   const [currentNews, setCurrentNews] = useState({
     title: "",
@@ -24,9 +23,26 @@ const signUpData = useSelector(selectSignUp)
   });
 
   useEffect(() => {
-    const userId = loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
-
-    dispatch(getData(userId));
+    const userId =
+      loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
+    navigator.geolocation.getCurrentPosition(async function (position) {
+      try {
+        var geolocation = {
+          latitude: position.coords.latitude,
+          longtitude: position.coords.longitude,
+        };
+        var data = {
+          userId: userId,
+          weather: {
+            latitude: geolocation.latitude.toFixed(3),
+            longtitude: geolocation.longtitude.toFixed(3),
+          },
+        };
+        await dispatch(getData(data));
+      } catch (err) {
+        console.log(err);
+      }
+    });
   }, []);
 
   return (

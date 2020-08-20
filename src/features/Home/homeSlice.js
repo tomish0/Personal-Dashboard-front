@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { getPhoto } from "./Dashboard/Photos/photosSlice";
-
+import { getNewsData } from "./Dashboard/News/newsSlice";
+import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
 
 export const getData = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
-
-    thunkAPI.dispatch(getPhoto(data));
+    thunkAPI.dispatch(getNewsData(data.userId));
+    thunkAPI.dispatch(getWeatherData(data.weather));
   }
 );
 
@@ -15,25 +15,42 @@ export const getData = createAsyncThunk(
 export const homeSlice = createSlice({
   name: "home",
   initialState: {
-    weather: {},
-    news: [],
-    sport: [],
+    weather: {
+      haveWeatherData: false,
+      temperature: "",
+      location: "",
+      icon: "",
+    },
+    news: {
+      haveNewsData: false,
+      newsTitle: "",
+      newsDescription: "",
+      newsLink: "",
+    },
     photos: [],
     tasks: [],
-    clothes: [],
-    haveData: false,
   },
   reducers: {
-    haveWeather: (state, action) => {
-      state.weather = action.payload;
+    addWeather: (state, action) => {
+      const { haveWeatherData, temperature, location, icon } = action.payload;
+      const weather = state.weather;
+      weather.haveWeatherData = haveWeatherData;
+      weather.temperature = temperature;
+      weather.location = location;
+      weather.icon = icon;
     },
     addNews: (state, action) => {
-      const { news } = action.payload;
-      state.news = news;
-    },
-    addSport: (state, action) => {
-      const { sport } = action.payload;
-      state.sport = sport;
+      const {
+        haveNewsData,
+        newsTitle,
+        newsDescription,
+        newsLink,
+      } = action.payload;
+      const news = state.news;
+      news.haveNewsData = haveNewsData;
+      news.newsTitle = newsTitle;
+      news.newsDescription = newsDescription;
+      news.newsLink = newsLink;
     },
     addPhotos: (state, action) => {
       const { photos } = action.payload;
@@ -43,17 +60,10 @@ export const homeSlice = createSlice({
       const { tasks } = action.payload;
       state.tasks = tasks;
     },
-    addClothes: (state, action) => {
-      const { clothes } = action.payload;
-      state.clothes = clothes;
-    },
-    haveData: (state) => {
-      state.haveData = true;
-    },
   },
 });
 
-export const { haveWeather, haveData } = homeSlice.actions; // export reducers to be called in comps
+export const { addWeather, addNews, addPhotos, addTasks } = homeSlice.actions; // export reducers to be called in comps
 
 // export the current store state
 export const selectHome = (state) => state.home;

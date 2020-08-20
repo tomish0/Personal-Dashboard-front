@@ -1,0 +1,34 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.tasks-link-container {
+  margin-top: 10px;
+}
+
+.tasks-link-container .input-checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tasks-link-container .input-checkbox-container .input-dummy {
+  width: 80%;
+  border-bottom: 2px solid black;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.tasks-link-container .input-checkbox-container .checkbox {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border: 3px solid #ffe260;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+/*# sourceMappingURL=TasksLink.css.map */

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import sportData from "../../../../Assets/sportData.json";
+import BackButton from "../../../Button/BackButton"
 import "../../../../css/Sport.css";
 
 function Sport() {
@@ -22,7 +22,7 @@ function Sport() {
 
   return (
     <div className="sport-container">
-      <Link to="/Home">Back</Link>
+      <BackButton />
       <h1>Champion's League Challenge</h1>
       <div className='input-result-container'>
         <input

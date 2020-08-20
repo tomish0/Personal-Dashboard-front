@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EACpB,OAAO,EAAE,IAAI;CAMhB;;AAPD,AAEE,uBAFqB,CAErB,0BAA0B,CAAC;EACzB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,aAAa,EAAE,GAAG;CACnB",
+    "mappings": "AAAA,AACE,uBADqB,CACrB,0BAA0B,CAAC;EACzB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,aAAa,EAAE,GAAG;CACnB",
     "sources": [
         "../scss/WeatherLink.scss"
     ],

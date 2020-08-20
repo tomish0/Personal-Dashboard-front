@@ -1,7 +1,3 @@
-.weather-link-container {
-  padding: 10px;
-}
-
 .weather-link-container .current-weather-container {
   display: -webkit-box;
   display: -ms-flexbox;
