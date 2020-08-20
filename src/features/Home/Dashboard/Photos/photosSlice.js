@@ -4,16 +4,15 @@ import axios from "axios";
 export const getPhoto = createAsyncThunk(
   "user/add/requestStatus",
   async (userId, thunkAPI) => {
-    console.log(userId);
     const url = "http://localhost:5000/photo";
     axios({
       method: "get",
       url: url,
-      data: userId,
       headers: { userid: userId },
     })
       .then((res) => {
         console.log(res);
+        thunkAPI.dispatch(addAllPhotos(res.data.photos))
       })
       .catch((err) => {
         console.log(err);
@@ -45,14 +44,15 @@ export const addPhoto = createAsyncThunk(
 export const photosSlice = createSlice({
   name: "photos",
   initialState: {
-    photos: [],
+    allPhotos: [],
     newPhoto: "",
     addSuccess: false,
     addFail: false,
   },
   reducers: {
     addAllPhotos: (state, action) => {
-      state.photos = action.payload;
+      console.log('called', action.payload, state.allPhotos);
+      state.allPhotos = action.payload;
     },
     addNewPhoto: (state, action) => {
       state.newPhoto = action.payload;
@@ -72,6 +72,6 @@ export const {
 } = photosSlice.actions; // export reducers to be called in comps
 
 // export the current store state
-export const selectPhotos = (state) => state.login;
+export const selectPhotos = (state) => state.photos;
 
 export default photosSlice.reducer; // export the slice to the store
