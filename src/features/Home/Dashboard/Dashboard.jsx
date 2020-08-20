@@ -21,7 +21,6 @@ function Dashboard(props) {
         <Link
           to="/News"
           className="route-link"
-          onClick={() => props.setHome(false)}
         >
           <h2>News</h2>
           <NewsLink
@@ -32,7 +31,6 @@ function Dashboard(props) {
         <Link
           to="/Sport"
           className="route-link"
-          onClick={() => props.setHome(false)}
         >
           <h2>Sport</h2>
           <SportLink />
@@ -40,7 +38,6 @@ function Dashboard(props) {
         <Link
           to="/Photos"
           className="route-link"
-          onClick={() => props.setHome(false)}
         >
           <h2>Photos</h2>
           <PhotosLink />
@@ -48,7 +45,6 @@ function Dashboard(props) {
         <Link
           to="/Tasks"
           className="route-link"
-          onClick={() => props.setHome(false)}
         >
           <h2>Tasks</h2>
           <TasksLink />

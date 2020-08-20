@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import axios from "axios";
+import { signUp, selectSignUp } from "./signUpSlice";
 import Button from "../Button/Button";
 
 function SignUp(props) {
+  const dispatch = useDispatch();
+
+  const signUpData = useSelector(selectSignUp) 
+
   const [signUpDetails, setSignUpDetails] = useState({
     username: "",
     email: "",
     password: "",
     checkPassword: "",
-  });
-
-  const [signUpFail, setSignUpFail] = useState({
-    username: false,
-    email: false,
-    err: false,
   });
 
   const handleSignUpDetails = (e) => {
@@ -46,37 +44,12 @@ function SignUp(props) {
   }, [signUpDetails]);
 
   const handleSubmit = () => {
-    const url = "http://localhost:5000/user/sign-up";
     var data = {
       username: signUpDetails.username,
       email: signUpDetails.email,
       password: signUpDetails.password,
     };
-    axios({
-      method: "post",
-      url: url,
-      data: data,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data.resUsername === 1) {
-          setSignUpFail({ username: true });
-        }
-        if (res.data.resEmail === 1) {
-          setSignUpFail({ email: true });
-        }
-        if (res.data.resUsername === 1 && res.data.resEmail === 1) {
-          setSignUpFail({ username: true, email: true });
-        }
-        if (res.data.username) {
-          props.setAppOnline(true);
-          props.setUsername(res.data.username);
-        }
-      })
-      .catch((err) => {
-        console.dir(err);
-        setSignUpFail({ ...signUpFail, err: true });
-      });
+    dispatch(signUp(data));
   };
 
   return (
@@ -114,17 +87,17 @@ function SignUp(props) {
         />
       </div>
       <div className="error-messages">
-        {signUpFail.err ? (
+        {signUpData.failedLogin.err ? (
           <div>Please fill in your details</div>
-        ) : signUpFail.username && signUpFail.email ? (
+        ) : signUpData.failedLogin.username && signUpData.failedLogin.email ? (
           <div>Both the username and email are already taken</div>
-        ) : signUpFail.username ? (
+        ) : signUpData.failedLogin.username ? (
           <div>The username is already taken</div>
-        ) : signUpFail.email ? (
+        ) : signUpData.failedLogin.email ? (
           <div>This email is already taken </div>
         ) : null}
       </div>
-      <div className='buttons-app-nav-position'>
+      <div className="buttons-app-nav-position">
         <div className="buttons-app-nav">
           <Button btnMessage={"Register"} onClick={handleSubmit} />
           <div>

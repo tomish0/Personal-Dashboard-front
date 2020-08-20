@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { Route, Switch, Redirect, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLogin } from "../Login/loginSlice";
+import { selectSignUp } from "../SignUp/signUpSlice";
+import {getData} from "./homeSlice"
 import News from "./Dashboard/News/News";
 import Sport from "./Dashboard/Sport/Sport";
 import Photos from "./Dashboard/Photos/Photos";
@@ -7,17 +11,26 @@ import Tasks from "./Dashboard/Tasks/Tasks";
 import Dashboard from "./Dashboard/Dashboard";
 
 function Home(props) {
+  const dispatch = useDispatch();
+
+
+const loginData = useSelector(selectLogin)
+const signUpData = useSelector(selectSignUp)
+
   const [currentNews, setCurrentNews] = useState({
     title: "",
     description: "",
     link: "",
   });
 
-  const [home, setHome] = useState(true);
+  useEffect(() => {
+    const userId = loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
+
+    dispatch(getData(userId));
+  }, []);
 
   return (
     <div>
-      {!home ? <Link to="/Home" onClick={() => setHome(true)}>Back</Link> : null}
       <Switch>
         <Route path="/" exact component={Home}>
           <Redirect to="/Home" />
@@ -37,7 +50,6 @@ function Home(props) {
           currentNews={currentNews}
           setCurrentNews={setCurrentNews}
           username={props.username}
-          setHome={setHome}
         />
       </Switch>
     </div>

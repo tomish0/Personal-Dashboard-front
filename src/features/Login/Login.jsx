@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import axios from "axios";
+import {login, selectLogin} from './loginSlice'
 import Button from "../Button/Button";
 import "../../css/LoginSignUp.css";
 
 function Login(props) {
+  const dispatch = useDispatch();
+
+  const loginData = useSelector(selectLogin) 
+
   const [loginDetails, setLoginDetails] = useState({
     username: "",
     password: "",
   });
-
-  const [loginFail, setLoginFail] = useState(false);
 
   const handleLoginDetails = (e) => {
     // dynamically add loginDetails from the form inputs
@@ -21,26 +23,8 @@ function Login(props) {
     });
   };
 
-  const handleSubmit = async () => {
-    const url = "http://localhost:5000/user/login";
-    axios({
-      method: "post",
-      url: url,
-      data: loginDetails,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data.user === 0) {
-          props.setAppOnline(true);
-          props.setUsername(loginDetails.username);
-        } else {
-          setLoginFail(true);
-        }
-      })
-      .catch((err) => {
-        console.dir(err);
-        setLoginFail(true);
-      });
+  const handleSubmit = () => {
+    dispatch(login(loginDetails));
   };
 
   return (
@@ -61,7 +45,7 @@ function Login(props) {
           onChange={handleLoginDetails}
         />
       </div>
-      {loginFail ? <div>Your username or password is incorrect</div> : null}
+      {loginData.failedLogin ? <div>Your username or password is incorrect</div> : null}
       <div className="buttons-app-nav-position">
         <div className="buttons-app-nav">
           <Button btnMessage={"Login"} onClick={handleSubmit} />

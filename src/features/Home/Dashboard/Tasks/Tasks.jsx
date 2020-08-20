@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import plusIcon from "../../../../Assets/Plus_button_small.png";
 import Button from "../../../Button/Button";
+import { Link } from "react-router-dom";
+
 
 import "../../../../css/Tasks.css";
 
@@ -34,6 +36,7 @@ function Tasks(props) {
 
   return (
     <div className="tasks-container">
+      <Link to="/Home">Back</Link> 
       <h1>Tasks</h1>
       <div className='tasks-plus-btn'>
         {allTasks.map((item, index) => {

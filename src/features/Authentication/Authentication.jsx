@@ -10,26 +10,8 @@ function Authentication(props) {
       <div className="authentication-container">
         <h1>Dev Challenge</h1>
         <Switch>
-          <Route
-            exact
-            path="/Sign-Up"
-            component={() => (
-              <SignUp
-                setAppOnline={props.setAppOnline}
-                setUsername={props.setUsername}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/Login"
-            component={() => (
-              <Login
-                setAppOnline={props.setAppOnline}
-                setUsername={props.setUsername}
-              />
-            )}
-          />
+          <Route exact path="/Sign-Up" component={SignUp} />
+          <Route exact path="/Login" component={Login} />
           <Route exact path=":a(.+)">
             <Redirect to="/Login" />
           </Route>

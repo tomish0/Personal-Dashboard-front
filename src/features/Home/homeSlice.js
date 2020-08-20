@@ -1,10 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+import { getPhoto } from "./Dashboard/Photos/photosSlice";
+
+
 export const getData = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
 
-    thunkAPI.dispatch(haveData())
+    thunkAPI.dispatch(getPhoto(data));
   }
 );
 

@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import cloudsIcon from "../../../../Assets/Clouds_icon.png";
 import rainIcon from "../../../../Assets/Rain_icon.png";
 import sunIcon from "../../../../Assets/Sun_icon.png";
-import axios from "axios"
+import axios from "axios";
 
 function WeatherLink(props) {
   const [currentWeather, setCurrentWeather] = useState({
-    temperature: '',
-    icon: '',
-    location: '',
-  })
+    temperature: "",
+    icon: "",
+    location: "",
+  });
 
   useEffect(() => {
+    let mounted = true;
+    if (mounted) {
     navigator.geolocation.getCurrentPosition(async function (position) {
       let geolocation = {
         latitude: position.coords.latitude,
@@ -43,15 +45,19 @@ function WeatherLink(props) {
           }
           setCurrentWeather({
             temperature: temp,
-              icon: icon,
-              location: location,
-          })
+            icon: icon,
+            location: location,
+          });
         })
         .catch((err) => {
           console.dir(err);
         });
     });
-  }, [])
+  } 
+    return function cleanup() {
+      mounted = false
+    }
+  }, []);
 
   return (
     <div>
