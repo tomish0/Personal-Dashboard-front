@@ -52,6 +52,22 @@
   color: white;
 }
 
+.login-container .fail-message,
+.sign-up-container .fail-message {
+  text-align: center;
+  color: #ffe260;
+}
+
+.login-container .fail-message ul,
+.sign-up-container .fail-message ul {
+  list-style: none;
+}
+
+.login-container .fail-message *,
+.sign-up-container .fail-message * {
+  margin: 8px;
+}
+
 .login-container .buttons-app-nav-position,
 .sign-up-container .buttons-app-nav-position {
   position: absolute;

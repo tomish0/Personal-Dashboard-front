@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUp, selectSignUp } from "./signUpSlice";
 import Button from "../Button/Button";
 
-function SignUp(props) {
+function SignUp() {
   const dispatch = useDispatch();
 
-  const signUpData = useSelector(selectSignUp) 
+  const signUpData = useSelector(selectSignUp);
 
   const [signUpDetails, setSignUpDetails] = useState({
     username: "",
@@ -17,39 +17,51 @@ function SignUp(props) {
   });
 
   const handleSignUpDetails = (e) => {
-    // dynamically add loginDetails from the form inputs
     setSignUpDetails({
       ...signUpDetails,
       [e.target.name]: e.target.value,
     });
   };
 
-  // const [preValidation, setPreValidation] = useState({
-  //   // state used to check password data is valid before being sent to db
-  //   passwordLength: false,
-  //   checkPasswordLength: false,
-  //   matchPassword: false,
-  // });
+  const [preValidation, setPreValidation] = useState({
+    usernameLength: false,
+    emailLength: false,
+    passwordLength: false,
+    passwordMatch: false,
+  });
 
-  // useEffect(() => {
-  //   // useEffect used to check password data is 8 characters or more, plus two passwords match
-  //   setPreValidation({
-  //     ...preValidation,
-  //     passwordLength: signUpDetails.password.length >= 8 ? true : false,
-  //     checkPasswordLength:
-  //       signUpDetails.checkPassword.length >= 8 ? true : false,
-  //     matchPassword:
-  //       signUpDetails.checkPassword === signUpDetails.password ? true : false,
-  //   });
-  // }, [signUpDetails]);
+  const [signUpFail, setSignUpFail] = useState(false);
+
+  useEffect(() => {
+    setPreValidation({
+      ...preValidation,
+      usernameLength: signUpDetails.username.length > 0 ? true : false,
+      emailLength:
+        signUpDetails.email.length > 0 && signUpDetails.email.includes("@")
+          ? true
+          : false,
+      passwordLength: signUpDetails.password.length >= 8 ? true : false,
+      passwordMatch:
+        signUpDetails.checkPassword === signUpDetails.password ? true : false,
+    });
+  }, [signUpDetails]);
 
   const handleSubmit = () => {
-    var data = {
-      username: signUpDetails.username,
-      email: signUpDetails.email,
-      password: signUpDetails.password,
-    };
-    dispatch(signUp(data));
+    if (
+      preValidation.usernameLength &&
+      preValidation.emailLength &&
+      preValidation.passwordLength &&
+      preValidation.passwordMatch
+    ) {
+      var data = {
+        username: signUpDetails.username,
+        email: signUpDetails.email,
+        password: signUpDetails.password,
+      };
+      dispatch(signUp(data));
+    } else {
+      setSignUpFail(true);
+    }
   };
 
   return (
@@ -72,21 +84,37 @@ function SignUp(props) {
       </div>
       <div className="adjacent-input">
         <input
-          type="text"
+          type="password"
           name="password"
           placeholder={"Password"}
           value={signUpDetails.password}
           onChange={handleSignUpDetails}
         />
         <input
-          type="text"
+          type="password"
           name="checkPassword"
           placeholder={"Confirm password"}
           value={signUpDetails.checkPassword}
           onChange={handleSignUpDetails}
         />
       </div>
-      <div className="error-messages">
+      <div className="fail-message">
+        {signUpFail ? (
+          <ul>
+            {!preValidation.usernameLength ? (
+              <li>Please provide a username</li>
+            ) : null}
+            {!preValidation.emailLength ? (
+              <li>Your email must be a valid email and include '@'</li>
+            ) : null}
+            {!preValidation.passwordLength ? (
+              <li>Your password must be at least 8 characters long</li>
+            ) : null}
+            {!preValidation.passwordMatch ? (
+              <li>Your password must match to the confirmed password</li>
+            ) : null}
+          </ul>
+        ) : null}
         {signUpData.failedLogin.err ? (
           <div>Please fill in your details</div>
         ) : signUpData.failedLogin.username && signUpData.failedLogin.email ? (

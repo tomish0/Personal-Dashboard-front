@@ -24,6 +24,16 @@
       color: white;
     }
   }
+  .fail-message {
+    text-align: center;
+    color: $color-yellow;
+    ul {
+      list-style: none;
+    }
+  }
+  .fail-message * {
+    margin: 8px;
+  }
   .buttons-app-nav-position {
     position: absolute;
     top: 85%;
