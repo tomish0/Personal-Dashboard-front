@@ -5,7 +5,7 @@ import { selectSignUp } from "../../../SignUp/signUpSlice";
 import { getPhoto, selectPhotos } from "./photosSlice";
 import CameraFileRoute from "./CameraFileRoute";
 import EachPhoto from "./EachPhoto";
-import BackButton from "../../../Button/BackButton"
+import BackButton from "../../../Button/BackButton";
 import "../../../../css/Photos.css";
 
 function Photos(props) {
@@ -19,7 +19,7 @@ function Photos(props) {
     const userId =
       loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
     dispatch(getPhoto(userId));
-  }, []);
+  }, [dispatch, loginData.userId, signUpData.userId]);
 
   return (
     <div>

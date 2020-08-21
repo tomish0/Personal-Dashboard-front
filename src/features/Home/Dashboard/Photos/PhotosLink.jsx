@@ -7,18 +7,18 @@ function PhotosLink() {
     <div className="photo-link-container">
       <div>
         <div className="img-container">
-          <img src={picContainer} />
+          <img src={picContainer} alt='icon-img-container'/>
         </div>
         <div className="img-container">
-          <img src={picContainer} />
+          <img src={picContainer} alt='icon-img-container'/>
         </div>
       </div>
       <div>
         <div className="img-container">
-          <img src={picContainer} />
+          <img src={picContainer} alt='icon-img-container'/>
         </div>
         <div className="img-container">
-          <img src={picContainer} />
+          <img src={picContainer} alt='icon-img-container'/>
         </div>
       </div>
     </div>

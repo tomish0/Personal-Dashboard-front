@@ -43,7 +43,7 @@ function Home(props) {
         console.log(err);
       }
     });
-  }, []);
+  }, [dispatch, loginData.userId, signUpData.userId]);
 
   return (
     <div>

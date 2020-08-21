@@ -12,7 +12,7 @@ function News() {
       <h1>News</h1>
       <h2>{homeData.news.newsTitle}</h2>
       <p>{homeData.news.newsDescription}</p>
-      <a href={homeData.news.newsLink} target="_blank">BBC Article Link</a>
+      <a href={homeData.news.newsLink} target="_blank" rel="noopener noreferrer">BBC Article Link</a>
     </div>
   );
 }

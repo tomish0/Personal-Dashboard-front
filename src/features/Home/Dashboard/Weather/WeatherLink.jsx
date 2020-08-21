@@ -21,6 +21,7 @@ function WeatherLink(props) {
               ? sunIcon
               : null
           }
+          alt="weather-icon"
         />
       </div>
       <div>{currentWeather.location}</div>

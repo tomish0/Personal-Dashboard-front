@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUp, selectSignUp } from "./signUpSlice";
@@ -24,24 +24,24 @@ function SignUp(props) {
     });
   };
 
-  const [preValidation, setPreValidation] = useState({
-    // state used to check password data is valid before being sent to db
-    passwordLength: false,
-    checkPasswordLength: false,
-    matchPassword: false,
-  });
+  // const [preValidation, setPreValidation] = useState({
+  //   // state used to check password data is valid before being sent to db
+  //   passwordLength: false,
+  //   checkPasswordLength: false,
+  //   matchPassword: false,
+  // });
 
-  useEffect(() => {
-    // useEffect used to check password data is 8 characters or more, plus two passwords match
-    setPreValidation({
-      ...preValidation,
-      passwordLength: signUpDetails.password.length >= 8 ? true : false,
-      checkPasswordLength:
-        signUpDetails.checkPassword.length >= 8 ? true : false,
-      matchPassword:
-        signUpDetails.checkPassword === signUpDetails.password ? true : false,
-    });
-  }, [signUpDetails]);
+  // useEffect(() => {
+  //   // useEffect used to check password data is 8 characters or more, plus two passwords match
+  //   setPreValidation({
+  //     ...preValidation,
+  //     passwordLength: signUpDetails.password.length >= 8 ? true : false,
+  //     checkPasswordLength:
+  //       signUpDetails.checkPassword.length >= 8 ? true : false,
+  //     matchPassword:
+  //       signUpDetails.checkPassword === signUpDetails.password ? true : false,
+  //   });
+  // }, [signUpDetails]);
 
   const handleSubmit = () => {
     var data = {

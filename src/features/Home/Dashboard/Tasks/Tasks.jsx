@@ -59,6 +59,7 @@ function Tasks() {
         })}
         <img
           src={plusIcon}
+          alt='icon-plus'
           onClick={() => {
             const newArray = allTasks.concat(task);
             setAllTasks(newArray);
