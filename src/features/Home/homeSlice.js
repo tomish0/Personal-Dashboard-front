@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+// import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
 import { getNewsData } from "./Dashboard/News/newsSlice";
 import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
 
@@ -8,6 +8,7 @@ export const getData = createAsyncThunk(
   async (data, thunkAPI) => {
     thunkAPI.dispatch(getNewsData(data.userId));
     thunkAPI.dispatch(getWeatherData(data.weather));
+    // thunkAPI.dispatch(getTasksData(data.userId));
   }
 );
 
@@ -28,7 +29,7 @@ export const homeSlice = createSlice({
       newsLink: "",
     },
     photos: [],
-    tasks: [],
+    allTasks: [],
   },
   reducers: {
     addWeather: (state, action) => {
@@ -57,8 +58,8 @@ export const homeSlice = createSlice({
       state.photos = photos;
     },
     addTasks: (state, action) => {
-      const { tasks } = action.payload;
-      state.tasks = tasks;
+      const { allTasks } = action.payload;
+      state.allTasks = allTasks;
     },
   },
 });

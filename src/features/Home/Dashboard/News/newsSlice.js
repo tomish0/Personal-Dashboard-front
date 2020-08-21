@@ -39,7 +39,14 @@ export const newsSlice = createSlice({
     newsDescription: "",
     newsLink: "",
   },
-  reducers: {},
+  reducers: {
+    addNewsData: (state, action) => {
+      const { newsTitle, newsDescription, newsLink } = action.payload;
+      state.newsTitle = newsTitle;
+      state.newsDescription = newsDescription;
+      state.newsLink = newsLink;
+    },
+  },
 });
 
 export const { addNewsData } = newsSlice.actions; // export reducers to be called in comps

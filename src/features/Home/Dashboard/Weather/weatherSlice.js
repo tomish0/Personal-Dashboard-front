@@ -51,7 +51,14 @@ export const weatherSlice = createSlice({
     location: "",
     icon: "",
   },
-  reducers: {},
+  reducers: {
+    addWeatherData: (state, action) => {
+      const { temperature, location, icon } = action.payload;
+      state.temperature = temperature;
+      state.location = location;
+      state.icon = icon;
+    },
+  },
 });
 
 export const { addWeatherData } = weatherSlice.actions; // export reducers to be called in comps

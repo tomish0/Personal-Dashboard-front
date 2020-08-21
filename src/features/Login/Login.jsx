@@ -38,7 +38,7 @@ function Login(props) {
           onChange={handleLoginDetails}
         />
         <input
-          type="text"
+          type="password"
           name="password"
           placeholder={"Password"}
           value={loginDetails.password}

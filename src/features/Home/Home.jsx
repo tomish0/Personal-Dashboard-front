@@ -3,7 +3,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLogin } from "../Login/loginSlice";
 import { selectSignUp } from "../SignUp/signUpSlice";
-import { getData } from "./homeSlice";
+import { getNewsData } from "./Dashboard/News/newsSlice";
+import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
+import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
 import News from "./Dashboard/News/News";
 import Sport from "./Dashboard/Sport/Sport";
 import Photos from "./Dashboard/Photos/Photos";
@@ -25,6 +27,7 @@ function Home(props) {
   useEffect(() => {
     const userId =
       loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
+
     navigator.geolocation.getCurrentPosition(async function (position) {
       try {
         var geolocation = {
@@ -38,7 +41,9 @@ function Home(props) {
             longtitude: geolocation.longtitude.toFixed(3),
           },
         };
-        await dispatch(getData(data));
+        await dispatch(getNewsData(data.userId));
+        await dispatch(getWeatherData(data.weather));
+        await dispatch(getTasksData(data.userId));
       } catch (err) {
         console.log(err);
       }
