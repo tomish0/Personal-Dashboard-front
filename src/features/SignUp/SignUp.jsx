@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUp, selectSignUp } from "./signUpSlice";
@@ -32,7 +32,25 @@ function SignUp() {
 
   const [signUpFail, setSignUpFail] = useState(false);
 
-  useEffect(() => {
+  // i wanted to use the useEffect to dynamically remove the error message once they are solved, 
+  // but it causing a missing dependency error for preValidation which netlify doesn't like
+  // can't add preValidation to dependency array or will reach maximum update depth
+
+  // useEffect(() => {
+  //   setPreValidation({
+  //     ...preValidation,
+  //     usernameLength: signUpDetails.username.length > 0 ? true : false,
+  //     emailLength:
+  //       signUpDetails.email.length > 0 && signUpDetails.email.includes("@")
+  //         ? true
+  //         : false,
+  //     passwordLength: signUpDetails.password.length >= 8 ? true : false,
+  //     passwordMatch:
+  //       signUpDetails.checkPassword === signUpDetails.password ? true : false,
+  //   });
+  // }, [signUpDetails]);
+
+  const handleSubmit = () => {
     setPreValidation({
       ...preValidation,
       usernameLength: signUpDetails.username.length > 0 ? true : false,
@@ -44,9 +62,6 @@ function SignUp() {
       passwordMatch:
         signUpDetails.checkPassword === signUpDetails.password ? true : false,
     });
-  }, [signUpDetails]);
-
-  const handleSubmit = () => {
     if (
       preValidation.usernameLength &&
       preValidation.emailLength &&
