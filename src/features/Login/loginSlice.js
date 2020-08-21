@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import domain from "../../whichDomain/whichDomain"
+import { domain } from "../../whichDomain/whichDomain";
 
 export const login = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
+    console.log(domain);
     const url = `${domain}/user/login`;
     axios({
       method: "post",
@@ -44,7 +45,6 @@ export const loginSlice = createSlice({
       const { userId, username } = action.payload;
       state.userId = userId;
       state.username = username;
-      
     },
     failedLogin: (state) => {
       state.failedLogin = true;

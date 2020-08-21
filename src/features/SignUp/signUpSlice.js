@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import domain from "../../whichDomain/whichDomain"
+import { domain } from "../../whichDomain/whichDomain";
 
 export const signUp = createAsyncThunk(
   "user/add/requestStatus",

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import domain from "../../../../whichDomain/whichDomain"
+import { domain } from "../../../../whichDomain/whichDomain";
 
 export const getPhoto = createAsyncThunk(
   "user/add/requestStatus",
@@ -13,7 +13,7 @@ export const getPhoto = createAsyncThunk(
     })
       .then((res) => {
         console.log(res);
-        thunkAPI.dispatch(addAllPhotos(res.data.photos))
+        thunkAPI.dispatch(addAllPhotos(res.data.photos));
       })
       .catch((err) => {
         console.log(err);
@@ -52,7 +52,7 @@ export const photosSlice = createSlice({
   },
   reducers: {
     addAllPhotos: (state, action) => {
-      console.log('called', action.payload, state.allPhotos);
+      console.log("called", action.payload, state.allPhotos);
       state.allPhotos = action.payload;
       console.log(state.allPhotos, state);
     },
