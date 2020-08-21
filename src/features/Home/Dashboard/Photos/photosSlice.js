@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import domain from "../../../../whichDomain/whichDomain"
 
 export const getPhoto = createAsyncThunk(
   "user/add/requestStatus",
   async (userId, thunkAPI) => {
-    const url = "http://localhost:5000/photo";
+    const url = `${domain}/photo`;
     axios({
       method: "get",
       url: url,
@@ -23,7 +24,7 @@ export const getPhoto = createAsyncThunk(
 export const addPhoto = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
-    const url = "http://localhost:5000/photo";
+    const url = `${domain}/photo`;
     axios({
       method: "post",
       url: url,

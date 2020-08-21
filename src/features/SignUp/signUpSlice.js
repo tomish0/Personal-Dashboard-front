@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import domain from "../../whichDomain/whichDomain"
 
 export const signUp = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
-    const url = "http://localhost:5000/user/sign-up";
+    const url = `${domain}/user/sign-up`;
     axios({
       method: "post",
       url: url,
