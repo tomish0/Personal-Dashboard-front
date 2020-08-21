@@ -5,7 +5,7 @@ import { addWeather } from "../../homeSlice";
 export const getWeatherData = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
-    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${
       data.latitude
     }&lon=${data.longtitude}&appid=${"d0a10211ea3d36b0a6423a104782130e"}`;
     axios({

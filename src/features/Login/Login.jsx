@@ -45,7 +45,7 @@ function Login(props) {
           onChange={handleLoginDetails}
         />
       </div>
-      {loginData.failedLogin ? <div>Your username or password is incorrect</div> : null}
+      {loginData.failedLogin ? <div className='fail-message'>Your username or password is incorrect</div> : null}
       <div className="buttons-app-nav-position">
         <div className="buttons-app-nav">
           <Button btnMessage={"Login"} onClick={handleSubmit} />
