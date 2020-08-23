@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addTasks } from "../../homeSlice";
 import { domain } from "../../../../whichDomain/whichDomain";
 
 export const getTasksData = createAsyncThunk(
@@ -14,7 +13,11 @@ export const getTasksData = createAsyncThunk(
     })
       .then((res) => {
         console.log(res);
-        thunkAPI.dispatch(addTasks(res.data));
+        // thunkAPI.dispatch(addTasks(res.data));
+        res.data.forEach((item) => {
+          delete item.userId;
+        });
+        thunkAPI.dispatch(addAllTasks(res.data));
       })
       .catch((err) => {
         console.log(err);
@@ -22,18 +25,22 @@ export const getTasksData = createAsyncThunk(
   }
 );
 
-export const addTask = createAsyncThunk(
+export const postTasks = createAsyncThunk(
   "user/add/requestStatus",
-  async (data, thunkAPI) => {
+  async (userId, thunkAPI) => {
     const url = `${domain}/tasks`;
+    const state = thunkAPI.getState();
+    const allTasks = state.tasks.allTasks;
+    console.log(allTasks);
     axios({
       method: "post",
       url: url,
-      data: data,
+      data: allTasks,
+      headers: { userid: userId },
     })
       .then((res) => {
-        console.log(res);
-        // thunkAPI.dispatch(addPhotoResult({ addSucess: true, addFail: false }));
+        console.log(res.data);
+        thunkAPI.dispatch(addNewTaskIds(res.data));
       })
       .catch((err) => {
         console.dir(err);
@@ -47,17 +54,19 @@ export const tasksSlice = createSlice({
   name: "photos",
   initialState: {
     allTasks: [],
-    addSuccess: false,
-    addFail: false,
+    newTaskIds: [],
   },
   reducers: {
     addAllTasks: (state, action) => {
       state.allTasks = action.payload;
     },
+    addNewTaskIds: (state, action) => {
+      state.newTaskIds = action.payload;
+    },
   },
 });
 
-export const { addAllTasks } = tasksSlice.actions; // export reducers to be called in comps
+export const { addAllTasks, addNewTaskIds } = tasksSlice.actions; // export reducers to be called in comps
 
 // export the current store state
 export const selectTasks = (state) => state.tasks;

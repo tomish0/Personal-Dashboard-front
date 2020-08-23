@@ -58,8 +58,7 @@ export const homeSlice = createSlice({
       state.photos = photos;
     },
     addTasks: (state, action) => {
-      const { allTasks } = action.payload;
-      state.allTasks = allTasks;
+      state.allTasks = action.payload;
     },
   },
 });
