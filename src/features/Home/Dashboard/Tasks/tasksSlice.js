@@ -12,7 +12,6 @@ export const getTasksData = createAsyncThunk(
       headers: { userid: userId },
     })
       .then((res) => {
-        // thunkAPI.dispatch(addTasks(res.data));
         res.data.forEach((item) => {
           delete item.userId;
         });
@@ -30,7 +29,6 @@ export const postTasks = createAsyncThunk(
     const url = `${domain}/tasks`;
     const state = thunkAPI.getState();
     const allTasks = state.tasks.allTasks;
-    console.log(allTasks);
     axios({
       method: "post",
       url: url,
@@ -39,10 +37,10 @@ export const postTasks = createAsyncThunk(
     })
       .then((res) => {
         thunkAPI.dispatch(addNewTaskIds(res.data));
+        thunkAPI.dispatch(getTasksData(userId))
       })
       .catch((err) => {
         console.dir(err);
-        // thunkAPI.dispatch(addPhotoResult({ addSucess: false, addFail: true }));
       });
   }
 );

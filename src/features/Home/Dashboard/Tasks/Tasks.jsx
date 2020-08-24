@@ -24,20 +24,12 @@ function Tasks() {
   const [changeMade, setChangeMade] = useState(false);
 
   const handleNewTaskStatus = (e, index) => {
-    var id;
-    taskData.newTaskIds.forEach((item) => {
-      allTasks.forEach((i, index) => {
-        if (item.currentIndex === index) {
-          id = item.taskId;
-        }
-      });
-    });
     setChangeMade(true);
     const correctIndex = index + 1;
     setAllTasks([
       ...allTasks.slice(0, index),
       {
-        _id: !allTasks[index]._id && id ? id : allTasks[index]._id,
+        _id: allTasks[index]._id,
         value: allTasks[index].value,
         status: e.target.checked,
       },
@@ -46,20 +38,12 @@ function Tasks() {
   };
 
   const handleNewTaskValue = (e, index) => {
-    var id;
-    taskData.newTaskIds.forEach((item) => {
-      allTasks.forEach((i, index) => {
-        if (item.currentIndex === index) {
-          id = item.taskId;
-        }
-      });
-    });
     setChangeMade(true);
     const correctIndex = index + 1;
     setAllTasks([
       ...allTasks.slice(0, index),
       {
-        _id: !allTasks[index]._id && id ? id : allTasks[index]._id,
+        _id: allTasks[index]._id, 
         value: e.target.value,
         status:
           allTasks[index].status.length === 0 ? false : allTasks[index].status,
