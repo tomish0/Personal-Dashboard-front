@@ -10,7 +10,7 @@ function PhotosLink() {
           <img src={picContainer} alt='icon-img-container'/>
         </div>
         <div className="img-container">
-          <img src={picContainer} alt='icon-img-container'/>
+          <img src={picContainer} alt='icon-img-container'/> 
         </div>
       </div>
       <div>

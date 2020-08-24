@@ -12,7 +12,6 @@ export const getPhoto = createAsyncThunk(
       headers: { userid: userId },
     })
       .then((res) => {
-        console.log(res);
         thunkAPI.dispatch(addAllPhotos(res.data.photos));
       })
       .catch((err) => {
@@ -32,11 +31,11 @@ export const addPhoto = createAsyncThunk(
     })
       .then((res) => {
         console.log(res);
-        thunkAPI.dispatch(addPhotoResult({ addSucess: true, addFail: false }));
+        thunkAPI.dispatch(addPhotoResult({ addSuccess: true, addFail: false }));
       })
       .catch((err) => {
         console.dir(err);
-        thunkAPI.dispatch(addPhotoResult({ addSucess: false, addFail: true }));
+        thunkAPI.dispatch(addPhotoResult({ addSuccess: false, addFail: true }));
       });
   }
 );
@@ -52,9 +51,7 @@ export const photosSlice = createSlice({
   },
   reducers: {
     addAllPhotos: (state, action) => {
-      console.log("called", action.payload, state.allPhotos);
       state.allPhotos = action.payload;
-      console.log(state.allPhotos, state);
     },
     addNewPhoto: (state, action) => {
       state.newPhoto = action.payload;

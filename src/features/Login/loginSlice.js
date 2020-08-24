@@ -5,7 +5,6 @@ import { domain } from "../../whichDomain/whichDomain";
 export const login = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
-    console.log(domain);
     const url = `${domain}/user/login`;
     axios({
       method: "post",
@@ -13,7 +12,6 @@ export const login = createAsyncThunk(
       data: data,
     })
       .then((res) => {
-        console.log(res);
         if (res.data.user === 0) {
           thunkAPI.dispatch(
             addUserIdUsername({
@@ -32,7 +30,6 @@ export const login = createAsyncThunk(
   }
 );
 
-// redux toolkit slice of store with initial state & reducers included
 export const loginSlice = createSlice({
   name: "login",
   initialState: {

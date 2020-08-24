@@ -5,7 +5,7 @@ import "../../css/BackButton.css"
 function BackButton(props) {
   return (
     <div className="back-button">
-      <Link to="/Home" className="link">Back</Link>
+      <Link to={props.link} className="link">Back</Link>
     </div>
   );
 }

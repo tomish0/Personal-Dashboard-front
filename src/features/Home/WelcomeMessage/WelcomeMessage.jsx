@@ -4,7 +4,7 @@ import "../../../css/WelcomeMessage.css"
 function WelcomeMessage(props) {
     return (
         <h1>
-            Good day {props.username}
+            Good Day <span>{props.username}</span>
         </h1>
     );
 }

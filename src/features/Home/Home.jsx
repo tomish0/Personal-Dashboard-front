@@ -6,6 +6,7 @@ import { selectSignUp } from "../SignUp/signUpSlice";
 import { getNewsData } from "./Dashboard/News/newsSlice";
 import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
 import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
+import {getPhoto} from "./Dashboard/Photos/photosSlice"
 import News from "./Dashboard/News/News";
 import Sport from "./Dashboard/Sport/Sport";
 import Photos from "./Dashboard/Photos/Photos";
@@ -44,6 +45,7 @@ function Home(props) {
         await dispatch(getNewsData(data.userId));
         await dispatch(getWeatherData(data.weather));
         await dispatch(getTasksData(data.userId));
+        await dispatch(getPhoto(data.userId))
       } catch (err) {
         console.log(err);
       }

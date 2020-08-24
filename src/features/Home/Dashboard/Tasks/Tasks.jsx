@@ -87,11 +87,11 @@ function Tasks() {
     return () => {
       dispatch(postTasks(userId));
     };
-  }, [dispatch]);
+  }, [dispatch, loginData.userId, signUpData.userId]);
 
   return (
     <div className="tasks-container">
-      <BackButton />
+      <BackButton link={'/Home'}/>
       <h1>Tasks</h1>
       <div className="tasks-plus-btn">
         {allTasks.map((item, index) => {

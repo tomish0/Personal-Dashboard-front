@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import { getPhoto, selectPhotos } from "./photosSlice";
-import CameraFileRoute from "./CameraFileRoute";
-import EachPhoto from "./EachPhoto";
+import AllPhotos from "./AllPhotos"
 import BackButton from "../../../Button/BackButton";
 import "../../../../css/Photos.css";
 
-function Photos(props) {
+function Photos() {
   const dispatch = useDispatch();
 
   const photosData = useSelector(selectPhotos);
@@ -16,23 +15,16 @@ function Photos(props) {
   const signUpData = useSelector(selectSignUp);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const userId =
       loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
     dispatch(getPhoto(userId));
-  }, [dispatch, loginData.userId, signUpData.userId]);
+  }, [dispatch, loginData.userId, signUpData.userId, photosData.addSuccess]);
 
   return (
     <div>
-      <BackButton />
-      <div className="photos-container">
-        {photosData.allPhotos
-          ? photosData.allPhotos.map((photo, index) => {
-              return <EachPhoto photo={photo.photo} key={index} />;
-            })
-          : null}
-
-        <CameraFileRoute />
-      </div>
+      <BackButton link={'/Home'}/>
+      <AllPhotos photos={photosData.allPhotos} addedPhoto={photosData.addSuccess}/>
     </div>
   );
 }

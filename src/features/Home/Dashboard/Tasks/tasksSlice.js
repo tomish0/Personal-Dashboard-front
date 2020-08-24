@@ -12,7 +12,6 @@ export const getTasksData = createAsyncThunk(
       headers: { userid: userId },
     })
       .then((res) => {
-        console.log(res);
         // thunkAPI.dispatch(addTasks(res.data));
         res.data.forEach((item) => {
           delete item.userId;
@@ -39,7 +38,6 @@ export const postTasks = createAsyncThunk(
       headers: { userid: userId },
     })
       .then((res) => {
-        console.log(res.data);
         thunkAPI.dispatch(addNewTaskIds(res.data));
       })
       .catch((err) => {

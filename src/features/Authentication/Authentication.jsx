@@ -4,9 +4,8 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import "../../css/Authentication.css";
 
-function Authentication(props) {
+function Authentication() {
   return (
-    <div className="authentication-position">
       <div className="authentication-container">
         <h1>Dev Challenge</h1>
         <Switch>
@@ -17,7 +16,6 @@ function Authentication(props) {
           </Route>
         </Switch>
       </div>
-    </div>
   );
 }
 

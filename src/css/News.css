@@ -1,4 +1,21 @@
-.news-container * {
-  margin: 10px;
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.news-container {
+  color: white;
+}
+
+.news-container h2 {
+  margin-bottom: 20px;
+}
+
+.news-container p {
+  margin-bottom: 20px;
+}
+
+.news-container a {
+  color: #ffe260;
 }
 /*# sourceMappingURL=News.css.map */

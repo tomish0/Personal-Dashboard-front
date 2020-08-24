@@ -1,12 +1,18 @@
 @import "./variables.scss";
 
 .image-container {
-    height: 260px;
-    width: max-content;
-    border: 2px solid $color-yellow;
+    background-position: center;
+    background-size: cover;
+    height: 280px;
+    width: 280px;
+    border-right: 5px solid $color-yellow;
+    border-left: 5px solid $color-yellow;
     border-radius: 10px;
     .image {
         height: 100%;
+        width: 100%;
         border-radius: 10px;
+        border-top: 5px solid $color-yellow;
+        border-bottom: 5px solid $color-yellow;
     }
 }

@@ -1,12 +1,14 @@
 .photos-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(270px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
-  margin: 0 auto;
+  margin: 10px auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
 }
 /*# sourceMappingURL=Photos.css.map */

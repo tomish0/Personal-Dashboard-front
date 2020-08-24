@@ -10,5 +10,14 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 290px;
+  overflow: hidden;
+}
+
+.clothes-link-container .pie-chart svg {
+  overflow: hidden;
+}
+
+.clothes-link-container .pie-chart svg path {
+  overflow: hidden;
 }
 /*# sourceMappingURL=ClothesLink.css.map */

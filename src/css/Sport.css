@@ -30,6 +30,7 @@
 .sport-container .input-result-container input {
   color: white;
   border: 2px solid #ffe260;
+  border-radius: 10px;
   width: 80%;
   text-align: center;
   padding: 8px;

@@ -15,10 +15,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 30px;
-  margin: 15px 0 15px 0;
-  width: 100%;
-  margin: 50px auto;
 }
 
 .login-container .adjacent-input input,
@@ -28,8 +24,6 @@
   background: none;
   border-bottom: 2px solid white;
   font-size: 0.9em;
-  margin: 0 auto;
-  width: 40%;
 }
 
 .login-container .adjacent-input ::-webkit-input-placeholder,
@@ -71,7 +65,7 @@
 .login-container .buttons-app-nav-position,
 .sign-up-container .buttons-app-nav-position {
   position: absolute;
-  top: 85%;
+  top: 75%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -96,8 +90,14 @@
   margin: 10px auto;
 }
 
-.login-container .buttons-app-nav-position .buttons-app-nav .login-sign-up-route,
-.sign-up-container .buttons-app-nav-position .buttons-app-nav .login-sign-up-route {
+.login-container .buttons-app-nav-position .buttons-app-nav .route-back,
+.sign-up-container .buttons-app-nav-position .buttons-app-nav .route-back {
+  width: 320px;
+  text-align: center;
+}
+
+.login-container .buttons-app-nav-position .buttons-app-nav .route-back .login-sign-up-route,
+.sign-up-container .buttons-app-nav-position .buttons-app-nav .route-back .login-sign-up-route {
   background: none;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -107,5 +107,35 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 470px) {
+  .adjacent-input {
+    height: 30px;
+    width: 100%;
+    margin: 40px auto;
+  }
+  .adjacent-input input {
+    margin: 0 auto;
+    width: 40%;
+  }
+}
+
+@media (max-width: 470px) {
+  .adjacent-input {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .adjacent-input input {
+    width: 80%;
+    margin: 20px;
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=LoginSignUp.css.map */

@@ -1,5 +1,14 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin: 10px 0 40px 0;
+}
+
+h1 span {
+  color: #ffe260;
 }
 /*# sourceMappingURL=WelcomeMessage.css.map */

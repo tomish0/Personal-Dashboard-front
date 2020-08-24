@@ -1,3 +1,14 @@
-.news-container * {
-    margin: 10px;
+@import "./variables.scss";
+
+.news-container  {
+    color: white;
+    h2 {
+        margin-bottom: 20px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+    a {
+        color: $color-yellow;
+    }
 }

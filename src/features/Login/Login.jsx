@@ -49,7 +49,7 @@ function Login(props) {
       <div className="buttons-app-nav-position">
         <div className="buttons-app-nav">
           <Button btnMessage={"Login"} onClick={handleSubmit} />
-          <div>
+          <div className="route-back">
             New to the challenge?
             <Link to="/Sign-Up">
               <Button

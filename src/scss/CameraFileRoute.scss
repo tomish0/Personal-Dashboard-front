@@ -1,30 +1,35 @@
 @import "./variables.scss";
 
 .camera-file-route-result-container {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  margin-top: 20px;
   .camera-file-route-container {
-    position: relative;
-    height: 260px;
-    width: max-content;
-    border: 2px solid $color-yellow;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
     color: white;
     text-align: center;
     margin-bottom: 10px;
-    .position {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .upload-camera {
+      margin: 30px;
+   
       .take-new-photo {
-        text-decoration: underline;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
         margin-bottom: 20px;
       }
       .find-photo {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 20px;
       }
     }
   }
@@ -32,8 +37,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    // z-index: 200;
     button {
-      margin: 10px;
+      margin: 20px;
     }
   }
 }

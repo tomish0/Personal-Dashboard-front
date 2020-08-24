@@ -4,6 +4,13 @@
 }
 
 .camera-file-route-result-container {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.camera-file-route-result-container .camera-file-route-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,35 +18,30 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.camera-file-route-result-container .camera-file-route-container {
-  position: relative;
-  height: 260px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  border: 2px solid #ffe260;
-  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
   color: white;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.camera-file-route-result-container .camera-file-route-container .position {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.camera-file-route-result-container .camera-file-route-container .upload-camera {
+  margin: 30px;
 }
 
-.camera-file-route-result-container .camera-file-route-container .position .take-new-photo {
-  text-decoration: underline;
+.camera-file-route-result-container .camera-file-route-container .upload-camera .take-new-photo {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
   margin-bottom: 20px;
 }
 
-.camera-file-route-result-container .camera-file-route-container .position .find-photo {
+.camera-file-route-result-container .camera-file-route-container .upload-camera .find-photo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,6 +52,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 20px;
 }
 
 .camera-file-route-result-container .add-new-photo {
@@ -66,6 +69,6 @@
 }
 
 .camera-file-route-result-container .add-new-photo button {
-  margin: 10px;
+  margin: 20px;
 }
 /*# sourceMappingURL=CameraFileRoute.css.map */

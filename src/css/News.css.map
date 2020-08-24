@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC,CAAC,CAAC;EACd,MAAM,EAAE,IAAI;CACf",
+    "mappings": "ACAA,UAAU;EACN,WAAW,EAAE,SAAS;EACtB,GAAG,EAAE,qCAAqC;;;ADA9C,AAAA,eAAe,CAAE;EACb,KAAK,EAAE,KAAK;CAUf;;AAXD,AAEI,eAFW,CAEX,EAAE,CAAC;EACC,aAAa,EAAE,IAAI;CACtB;;AAJL,AAKI,eALW,CAKX,CAAC,CAAC;EACE,aAAa,EAAE,IAAI;CACtB;;AAPL,AAQI,eARW,CAQX,CAAC,CAAC;EACE,KAAK,ECNI,OAAiB;CDO7B",
     "sources": [
-        "../scss/News.scss"
+        "../scss/News.scss",
+        "../scss/variables.scss"
     ],
     "names": [],
     "file": "News.css"
