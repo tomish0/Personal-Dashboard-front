@@ -22,7 +22,7 @@ function Sport() {
 
   return (
     <div className="sport-container">
-      <BackButton />
+      <BackButton link={"/Home"}/>
       <h1>Champion's League Challenge</h1>
       <div className='input-result-container'>
         <input
