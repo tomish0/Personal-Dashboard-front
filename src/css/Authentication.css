@@ -10,4 +10,10 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 1.7em;
+  }
+}
 /*# sourceMappingURL=Authentication.css.map */

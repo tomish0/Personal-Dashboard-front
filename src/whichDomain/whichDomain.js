@@ -1,6 +1,6 @@
 var remote = true;
 
-var isengard = "https://test.spiritbunker.com";
+var isengard = "http://api.isengardcoding.com";
 
 var localhost = "http://localhost:5000";
 
