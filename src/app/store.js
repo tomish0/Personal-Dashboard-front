@@ -5,6 +5,7 @@ import signUpSlice from "../features/SignUp/signUpSlice";
 import photosSlice from "../features/Home/Dashboard/Photos/photosSlice";
 import newsSlice from "../features/Home/Dashboard/News/newsSlice";
 import tasksSlice from "../features/Home/Dashboard/Tasks/tasksSlice";
+import stockSlice from "../features/Home/Dashboard/Stock/stockSlice";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     photos: photosSlice,
     news: newsSlice,
     tasks: tasksSlice,
+    stock: stockSlice,
   },
 });

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectHome } from "../homeSlice";
 import WeatherLink from "./Weather/WeatherLink";
 import NewsLink from "./News/NewsLink";
-import SportLink from "./Sport/SportLink";
+import StockLink from "./Stock/StockLink";
 import PhotosLink from "./Photos/PhotosLink";
 import TasksLink from "./Tasks/TasksLink";
 import ClothesLink from "./Clothes/ClothesLink";
@@ -36,10 +36,10 @@ function Dashboard(props) {
             </Link>
           </section>
           <section>
-            <Link to="/Sport" className="route-link">
-              <h2>Sport</h2>
+            <Link to="/Stock" className="route-link">
+              <h2>Stock</h2>
               <div className="link-container">
-                <SportLink />
+                <StockLink />
               </div>
             </Link>
           </section>

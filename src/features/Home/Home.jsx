@@ -8,7 +8,7 @@ import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
 import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
 import {getPhoto} from "./Dashboard/Photos/photosSlice"
 import News from "./Dashboard/News/News";
-import Sport from "./Dashboard/Sport/Sport";
+import Stock from "./Dashboard/Stock/Stock";
 import Photos from "./Dashboard/Photos/Photos";
 import Tasks from "./Dashboard/Tasks/Tasks";
 import Dashboard from "./Dashboard/Dashboard";
@@ -66,7 +66,7 @@ function Home(props) {
           path="/News"
           component={() => <News currentNews={currentNews} />}
         />
-        <Route exact path="/Sport" component={Sport} />
+        <Route exact path="/Stock" component={Stock} />
         <Route exact path="/Photos" component={Photos} />
         <Route exact path="/Tasks" component={() => <Tasks />} />
         <Dashboard

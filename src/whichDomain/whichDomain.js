@@ -1,4 +1,4 @@
-var remote = true;
+var remote = false;
 
 var isengard = "https://api.isengardcoding.com";
 

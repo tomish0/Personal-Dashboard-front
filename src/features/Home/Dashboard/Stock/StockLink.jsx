@@ -1,6 +1,6 @@
 import React from "react";
 
-function SportLink() {
+function StockLink() {
   return (
     <div className="sport-link-container">
       <h3>Sport Headline</h3>
@@ -11,4 +11,4 @@ function SportLink() {
   );
 }
 
-export default SportLink;
+export default StockLink;
