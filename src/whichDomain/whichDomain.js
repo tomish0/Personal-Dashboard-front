@@ -1,6 +1,6 @@
 var remote = true;
 
-var isengard = "http://api.isengardcoding.com";
+var isengard = "https://api.isengardcoding.com";
 
 var localhost = "http://localhost:5000";
 
