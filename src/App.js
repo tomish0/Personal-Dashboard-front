@@ -11,9 +11,11 @@ function App() {
   const loginData = useSelector(selectLogin);
   const signUpData = useSelector(selectSignUp);
 
+  var development = true ? true : false
+
   return (
     <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      {loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
+      {development || loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
         <Home
           username={
             loginData.username.length > 0
