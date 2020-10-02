@@ -6,7 +6,6 @@ export const getStock = createAsyncThunk(
   "user/add/requestStatus",
   async (data, thunkAPI) => {
     const url = `${domain}/stock`;
-    console.log('getStock', data);
     axios({
       method: "post",
       data: data,
@@ -14,8 +13,25 @@ export const getStock = createAsyncThunk(
       // headers: { userid: userId },
     })
       .then((res) => {
-          console.log(res);
-          thunkAPI.dispatch(addStockData(res.data))
+        thunkAPI.dispatch(addStockData(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+);
+
+export const getAllStocks = createAsyncThunk(
+  "user/add/requestStatus",
+  async (data, thunkAPI) => {
+    const url = `${domain}/stock/all`;
+    axios({
+      method: "get",
+      url: url,
+      // headers: { userid: userId },
+    })
+      .then((res) => {
+        thunkAPI.dispatch(addAllStocks(res.data));
       })
       .catch((err) => {
         console.log(err);
@@ -28,17 +44,19 @@ export const stockSlice = createSlice({
   name: "stock",
   initialState: {
     stock: {},
+    allStocks: []
   },
   reducers: {
     addStockData: (state, action) => {
       state.stock = action.payload;
     },
+    addAllStocks: (state, action) => {
+      state.allStocks = action.payload
+    }
   },
 });
 
-export const {
-    addStockData,
-} = stockSlice.actions; // export reducers to be called in comps
+export const { addStockData, addAllStocks } = stockSlice.actions; // export reducers to be called in comps
 
 // export the current store state
 export const selectStockData = (state) => state.stock;

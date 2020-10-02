@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getStock, selectStockData } from "./stockSlice";
+import StockChart from "./StockChart";
+import StockOptions from "./StockOptions";
 import BackButton from "../../../Button/BackButton";
 import "../../../../css/Sport.css";
-import StockChart from "./StockChart";
-import { TypeChooser } from "react-stockcharts/lib/helper";
 
 function Stock() {
   const dispatch = useDispatch();
@@ -20,7 +20,18 @@ function Stock() {
         timePeriod: "W",
       })
     );
-  }, []);
+    // var intervalRequest = setInterval(function () {
+    //   dispatch(
+    //     getStock({
+    //       stock: "AAPL",
+    //       timePeriod: "W",
+    //     })
+    //   );
+    // }, 5000);
+    // return function () {
+    //   clearInterval(intervalRequest);
+    // };
+  }, [dispatch]);
 
   var arr = [];
 
@@ -28,7 +39,7 @@ function Stock() {
     if (data.hasOwnProperty(key)) {
       if (key === "o") {
         data[key].forEach((item) => {
-          var initialObject = new Object();
+          var initialObject = {};
           initialObject.open = item;
           arr.push(initialObject);
         });
@@ -64,11 +75,8 @@ function Stock() {
     <div className="sport-container">
       <BackButton link={"/Home"} />
       <h1>Stocks</h1>
-      {stockData.stock.o ? (
-        <TypeChooser>
-          {(type) => <StockChart data={arr} type={type} />}
-        </TypeChooser>
-      ) : null}
+      <StockOptions />
+      {stockData.stock.o ? <StockChart data={arr} /> : null}
     </div>
   );
 }
