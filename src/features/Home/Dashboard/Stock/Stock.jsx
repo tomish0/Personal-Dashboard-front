@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getStock, selectStockData } from "./stockSlice";
+import { getStock, getAllStocks, selectStockData } from "./stockSlice";
 import StockChart from "./StockChart";
 import StockOptions from "./StockOptions";
 import BackButton from "../../../Button/BackButton";
@@ -9,29 +9,23 @@ import "../../../../css/Sport.css";
 function Stock() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getAllStocks());
+  }, [dispatch]);
+
+
+  const handleStockSelect = (stock, timePeriod) => {
+    dispatch(
+      getStock({
+        stock: stock.symbol,
+        timePeriod: timePeriod,
+      })
+    );
+  }; 
+
   const stockData = useSelector(selectStockData);
 
   const data = stockData.stock;
-
-  useEffect(() => {
-    dispatch(
-      getStock({
-        stock: "AAPL",
-        timePeriod: "W",
-      })
-    );
-    // var intervalRequest = setInterval(function () {
-    //   dispatch(
-    //     getStock({
-    //       stock: "AAPL",
-    //       timePeriod: "W",
-    //     })
-    //   );
-    // }, 5000);
-    // return function () {
-    //   clearInterval(intervalRequest);
-    // };
-  }, [dispatch]);
 
   var arr = [];
 
@@ -71,11 +65,13 @@ function Stock() {
     }
   }
 
+
+
   return (
     <div className="sport-container">
       <BackButton link={"/Home"} />
       <h1>Stocks</h1>
-      <StockOptions />
+      <StockOptions allStocks={stockData.allStocks} handleStockSelect={handleStockSelect}/>
       {stockData.stock.o ? <StockChart data={arr} /> : null}
     </div>
   );

@@ -1,21 +1,49 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllStocks, selectStockData } from "./stockSlice";
+import React, { useState } from "react";
+import StockFilterResults from "./StockFilterResults";
+import StockTimePeriod from "./StockTimePeriod";
+import Button from "../../../Button/Button";
 
 function StockOptions(props) {
-  const dispatch = useDispatch();
+  const [filteredData, setFilteredData] = useState([]);
 
-  const stockData = useSelector(selectStockData);
+  const search = (e) => {
+    setFilteredData([]);
+    setStock({});
+    const inputValue = e.target.value.toLowerCase();
+    if (inputValue.length >= 3) {
+      props.allStocks.forEach((item) => {
+        if (item.description.toLowerCase().includes(inputValue)) {
+          setFilteredData((filteredData) => [...filteredData, item]);
+        }
+      });
+    }
+  };
 
-  useEffect(() => {
-    dispatch(getAllStocks());
-  }, [dispatch]);
+  const [timePeriod, setTimePeriod] = useState("M");
 
-  console.log(stockData);
+  const [stock, setStock] = useState({});
 
-  return <div>
-      stockoptions
-  </div>;
+  return (
+    <div>
+      <div>US Stocks</div>
+      <input
+        type="text"
+        placeholder="Find a US company"
+        onChange={search}
+        className="search-input"
+      />
+      {!stock.description ? (
+        <StockFilterResults results={filteredData} setStock={setStock} />
+      ) : (
+        <div>{stock.description}</div>
+      )}
+      <StockTimePeriod setTimePeriod={setTimePeriod} />
+      <Button
+        btnMessage={"Select Stock"}
+        onClick={() => props.handleStockSelect(stock, timePeriod)}
+      />
+    </div>
+  );
 }
 
 export default StockOptions;

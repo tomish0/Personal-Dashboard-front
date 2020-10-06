@@ -1,0 +1,20 @@
+.stock-filter-results-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(240px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 93%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stock-filter-results-container .result {
+  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=StockFilterResults.css.map */
