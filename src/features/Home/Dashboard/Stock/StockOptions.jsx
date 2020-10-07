@@ -24,20 +24,21 @@ function StockOptions(props) {
   const [stock, setStock] = useState({});
 
   return (
-    <div>
-      <div>US Stocks</div>
-      <input
-        type="text"
-        placeholder="Find a US company"
-        onChange={search}
-        className="search-input"
-      />
+    <div className="stock-options-container">
+      <div className="search-time-period-container">
+        <input
+          type="text"
+          placeholder="Find a US company"
+          onChange={search}
+          className="search-input"
+        />
+        <StockTimePeriod setTimePeriod={setTimePeriod} />
+      </div>
       {!stock.description ? (
         <StockFilterResults results={filteredData} setStock={setStock} />
       ) : (
         <div>{stock.description}</div>
       )}
-      <StockTimePeriod setTimePeriod={setTimePeriod} />
       <Button
         btnMessage={"Select Stock"}
         onClick={() => props.handleStockSelect(stock, timePeriod)}

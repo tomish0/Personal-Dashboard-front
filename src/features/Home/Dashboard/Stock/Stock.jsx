@@ -13,15 +13,16 @@ function Stock() {
     dispatch(getAllStocks());
   }, [dispatch]);
 
-
   const handleStockSelect = (stock, timePeriod) => {
-    dispatch(
-      getStock({
-        stock: stock.symbol,
-        timePeriod: timePeriod,
-      })
-    );
-  }; 
+    if (stock.symbol) {
+      dispatch(
+        getStock({
+          stock: stock.symbol,
+          timePeriod: timePeriod,
+        })
+      );
+    }
+  };
 
   const stockData = useSelector(selectStockData);
 
@@ -65,13 +66,14 @@ function Stock() {
     }
   }
 
-
-
   return (
-    <div className="sport-container">
+    <div className="stock-container">
       <BackButton link={"/Home"} />
-      <h1>Stocks</h1>
-      <StockOptions allStocks={stockData.allStocks} handleStockSelect={handleStockSelect}/>
+      <h1>US Stock Market</h1>
+      <StockOptions
+        allStocks={stockData.allStocks}
+        handleStockSelect={handleStockSelect}
+      />
       {stockData.stock.o ? <StockChart data={arr} /> : null}
     </div>
   );
