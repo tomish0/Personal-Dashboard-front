@@ -4,7 +4,7 @@ import { selectLogin } from "./features/Login/loginSlice";
 import { selectSignUp } from "./features/SignUp/signUpSlice";
 import Authentication from "./features/Authentication/Authentication";
 import Home from "./features/Home/Home";
-import backgroundImage from "./Assets/Background.png";
+import backgroundImage from "./Assets/Background.jpg";
 import "./css/App.css";
 
 function App() {

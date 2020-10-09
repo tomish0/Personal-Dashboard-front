@@ -59,14 +59,6 @@ function Dashboard(props) {
               </div>
             </Link>
           </section>
-          <section>
-            <div className="route-link">
-              <h2>Clothes</h2>
-              <div className="link-container">
-                <ClothesLink />
-              </div>
-            </div>
-          </section>
         </div>
       ) : null}
     </div>
