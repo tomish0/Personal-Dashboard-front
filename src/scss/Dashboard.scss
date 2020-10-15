@@ -11,12 +11,12 @@
       width: 300px;
       height: 200px;
       text-align: center;
-      border: 2px solid $color-yellow;
+      border: 2px solid $color-green;
       border-radius: 10px;
       margin: 10px;
       .route-link {
         text-decoration: none;
-        color: black;
+        color: white; 
         h2 {
           background-color: $color-yellow;
           border-radius: 5px 5px 0 0;

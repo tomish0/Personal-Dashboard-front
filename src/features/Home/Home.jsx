@@ -45,7 +45,7 @@ function Home(props) {
         await dispatch(getNewsData(data.userId));
         await dispatch(getWeatherData(data.weather));
         await dispatch(getTasksData(data.userId));
-        await dispatch(getPhoto(data.userId))
+        // await dispatch(getPhoto(data.userId))
       } catch (err) {
         console.log(err);
       }
@@ -67,7 +67,7 @@ function Home(props) {
           component={() => <News currentNews={currentNews} />}
         />
         <Route exact path="/Stock" component={Stock} />
-        <Route exact path="/Photos" component={Photos} />
+        {/* <Route exact path="/Photos" component={Photos} /> */}
         <Route exact path="/Tasks" component={() => <Tasks />} />
         <Dashboard
           currentNews={currentNews}

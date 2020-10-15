@@ -7,7 +7,6 @@ import NewsLink from "./News/NewsLink";
 import StockLink from "./Stock/StockLink";
 import PhotosLink from "./Photos/PhotosLink";
 import TasksLink from "./Tasks/TasksLink";
-import ClothesLink from "./Clothes/ClothesLink";
 import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
 import "../../../css/Dashboard.css";
 
@@ -43,14 +42,14 @@ function Dashboard(props) {
               </div>
             </Link>
           </section>
-          <section>
+          {/* <section>
             <Link to="/Photos" className="route-link">
               <h2>Photos</h2>
               <div className="link-container">
                 <PhotosLink />
               </div>
             </Link>
-          </section>
+          </section> */}
           <section>
             <Link to="/Tasks" className="route-link">
               <h2>Tasks</h2>

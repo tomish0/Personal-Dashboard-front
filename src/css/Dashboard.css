@@ -19,18 +19,18 @@
   width: 300px;
   height: 200px;
   text-align: center;
-  border: 2px solid #ffe260;
+  border: 2px solid #306946;
   border-radius: 10px;
   margin: 10px;
 }
 
 .dashboard-container .grid-container section .route-link {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .dashboard-container .grid-container section .route-link h2 {
-  background-color: #ffe260;
+  background-color: #306946;
   border-radius: 5px 5px 0 0;
 }
 
