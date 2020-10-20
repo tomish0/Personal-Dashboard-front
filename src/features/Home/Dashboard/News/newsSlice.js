@@ -4,7 +4,7 @@ import { addNews } from "../../homeSlice";
 
 export const getNewsData = createAsyncThunk(
   "user/add/requestStatus",
-  async (data, thunkAPI) => {
+  async (na, thunkAPI) => {
     try {
       const data = await axios(
         "https://cors-anywhere.herokuapp.com/http://feeds.bbci.co.uk/news/rss.xml"
@@ -12,17 +12,20 @@ export const getNewsData = createAsyncThunk(
       const xmlData = data.data;
       var domParser = new DOMParser();
       var xmlDoc = domParser.parseFromString(xmlData, "text/xml");
-      var title = xmlDoc.getElementsByTagName("title")[2].childNodes[0]
-        .nodeValue;
-      var description = xmlDoc.getElementsByTagName("description")[1]
-        .childNodes[0].nodeValue;
-      var link = xmlDoc.getElementsByTagName("link")[2].childNodes[0].nodeValue;
+      var xmlTitles = xmlDoc.getElementsByTagName("title");
+      var xmlLinks = xmlDoc.getElementsByTagName("link");
+      var newsData = [];
+      for (var i = 2; i < 10; i++) {
+        var newsObj = {
+          title: xmlTitles[i].childNodes[0].nodeValue,
+          link: xmlLinks[i].childNodes[0].nodeValue,
+        };
+        newsData.push(newsObj)
+      }
       thunkAPI.dispatch(
         addNews({
           haveNewsData: true,
-          newsTitle: title,
-          newsDescription: description,
-          newsLink: link,
+          newsData: newsData
         })
       );
     } catch (err) {

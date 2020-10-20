@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
 import { getNewsData } from "./Dashboard/News/newsSlice";
-import { getWeatherData } from "./Dashboard/Weather/weatherSlice";
+import { getWeatherData } from "./Header/Weather/weatherSlice";
 
 export const getData = createAsyncThunk(
   "user/add/requestStatus",
@@ -24,9 +24,7 @@ export const homeSlice = createSlice({
     },
     news: {
       haveNewsData: false,
-      newsTitle: "",
-      newsDescription: "",
-      newsLink: "",
+      newsData: [],
     },
     photos: [],
     allTasks: [],
@@ -41,17 +39,10 @@ export const homeSlice = createSlice({
       weather.icon = icon;
     },
     addNews: (state, action) => {
-      const {
-        haveNewsData,
-        newsTitle,
-        newsDescription,
-        newsLink,
-      } = action.payload;
+      const { haveNewsData, newsData } = action.payload;
       const news = state.news;
       news.haveNewsData = haveNewsData;
-      news.newsTitle = newsTitle;
-      news.newsDescription = newsDescription;
-      news.newsLink = newsLink;
+      news.newsData = newsData;
     },
     addPhotos: (state, action) => {
       const { photos } = action.payload;

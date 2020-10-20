@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getStock, getAllStocks, selectStockData } from "./stockSlice";
 import StockChart from "./StockChart";
 import StockOptions from "./StockOptions";
-import BackButton from "../../../Button/BackButton";
 import "../../../../css/Sport.css";
 
 function Stock() {
@@ -68,8 +67,6 @@ function Stock() {
 
   return (
     <div className="stock-container">
-      <BackButton link={"/Home"} />
-      <h1>US Stock Market</h1>
       <StockOptions
         allStocks={stockData.allStocks}
         handleStockSelect={handleStockSelect}

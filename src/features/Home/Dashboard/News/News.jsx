@@ -1,18 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectHome } from "../../homeSlice";
-import BackButton from "../../../Button/BackButton"
-import "../../../../css/News.css"
 
-function News() {
-  const homeData = useSelector(selectHome);
+function News(props) {
   return (
-    <div className='news-container'>
-      <BackButton link={'/Home'}/>
-      <h1>News</h1> 
-      <h2>{homeData.news.newsTitle}</h2>
-      <p>{homeData.news.newsDescription}</p>
-      <a href={homeData.news.newsLink} target="_blank" rel="noopener noreferrer">BBC Article Link</a>
+    <div className="news-link-container">
+      {props.news.map((item, index) => {
+        return (
+          <div key={index}>
+            <h4>{item.title}</h4>
+            <a href={item.link} target="_blank">
+              Article
+            </a>
+          </div>
+        );
+      })}
     </div>
   );
 }

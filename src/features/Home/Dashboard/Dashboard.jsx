@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectHome } from "../homeSlice";
-import WeatherLink from "./Weather/WeatherLink";
-import NewsLink from "./News/NewsLink";
-import StockLink from "./Stock/StockLink";
-import PhotosLink from "./Photos/PhotosLink";
-import TasksLink from "./Tasks/TasksLink";
-import WelcomeMessage from "../WelcomeMessage/WelcomeMessage";
+import News from "./News/News";
+import Stock from "./Stock/Stock";
+import FinancialNews from "./FinancialNews/FinancialNews";
+import Tasks from "./Tasks/Tasks";
+import WelcomeMessage from "../Header/WelcomeMessage/WelcomeMessage";
+import Header from "../Header/Header"
 import "../../../css/Dashboard.css";
 
 function Dashboard(props) {
@@ -15,51 +14,37 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard-container">
-      <WelcomeMessage username={props.username} />
-      {homeData.weather.haveWeatherData && homeData.news.haveNewsData ? (
-        <div className="grid-container">
+      <Header username={props.username}/>
+      <div className="all-section-container">
+        <div className="two-section-container">
           <section>
-            <div className="route-link">
-              <h2>Weather</h2>
-              <div className="link-container">
-                <WeatherLink currentWeather={homeData.weather} />
-              </div>
+            <h2>News</h2>
+            <div className="content">
+              <News news={homeData.news.newsData} />
             </div>
           </section>
           <section>
-            <Link to="/News" className="route-link">
-              <h2>News</h2>
-              <div className="link-container">
-                <NewsLink currentNews={homeData.news} />
-              </div>
-            </Link>
-          </section>
-          <section>
-            <Link to="/Stock" className="route-link">
-              <h2>Stock</h2>
-              <div className="link-container">
-                <StockLink />
-              </div>
-            </Link>
-          </section>
-          {/* <section>
-            <Link to="/Photos" className="route-link">
-              <h2>Photos</h2>
-              <div className="link-container">
-                <PhotosLink />
-              </div>
-            </Link>
-          </section> */}
-          <section>
-            <Link to="/Tasks" className="route-link">
-              <h2>Tasks</h2>
-              <div className="link-container">
-                <TasksLink />
-              </div>
-            </Link>
+            <h2>Market News</h2>
+            <div className="content">
+              <FinancialNews />
+            </div>
           </section>
         </div>
-      ) : null}
+        <div className="two-section-container">
+          <section>
+            <h2>Tasks</h2>
+            <div className="content">
+              <Tasks />
+            </div>
+          </section>
+          <section>
+            <h2>US Stock Market</h2>
+            <div className="content">
+              <Stock />
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }

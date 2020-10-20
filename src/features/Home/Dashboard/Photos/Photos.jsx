@@ -4,7 +4,6 @@ import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import { getPhoto, selectPhotos } from "./photosSlice";
 import AllPhotos from "./AllPhotos"
-import BackButton from "../../../Button/BackButton";
 import "../../../../css/Photos.css";
 
 function Photos() {
@@ -23,7 +22,6 @@ function Photos() {
 
   return (
     <div>
-      <BackButton link={'/Home'}/>
       <AllPhotos photos={photosData.allPhotos} addedPhoto={photosData.addSuccess}/>
     </div>
   );

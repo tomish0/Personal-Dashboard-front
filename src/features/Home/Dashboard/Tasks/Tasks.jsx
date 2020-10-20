@@ -4,7 +4,6 @@ import { postTasks, addAllTasks, selectTasks } from "./tasksSlice";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import plusIcon from "../../../../Assets/Plus_button_small.png";
-import BackButton from "../../../Button/BackButton";
 import "../../../../css/Tasks.css";
 
 function Tasks() {
@@ -75,8 +74,6 @@ function Tasks() {
 
   return (
     <div className="tasks-container">
-      <BackButton link={'/Home'}/>
-      <h1>Tasks</h1>
       <div className="tasks-plus-btn">
         {allTasks.map((item, index) => {
           return (

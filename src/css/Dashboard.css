@@ -3,38 +3,65 @@
   src: url("../Assets/Montserrat-Light.ttf");
 }
 
-.dashboard-container .grid-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(300px, 400px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
-  justify-items: center;
-  margin: 0 auto;
+.dashboard-container {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-container .all-section-container {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.dashboard-container .grid-container section {
-  width: 300px;
-  height: 200px;
+.dashboard-container .all-section-container .two-section-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.dashboard-container .all-section-container .two-section-container section {
   text-align: center;
   border: 2px solid #306946;
   border-radius: 10px;
   margin: 10px;
+  width: 45vw;
 }
 
-.dashboard-container .grid-container section .route-link {
-  text-decoration: none;
-  color: white;
+.dashboard-container .all-section-container .two-section-container section h2 {
+  padding: 5px;
 }
 
-.dashboard-container .grid-container section .route-link h2 {
-  background-color: #306946;
-  border-radius: 5px 5px 0 0;
-}
-
-.dashboard-container .grid-container section .route-link .link-container {
-  padding: 10px;
+.dashboard-container .all-section-container .two-section-container section .content {
+  overflow: auto;
+  max-height: 40vh;
 }
 /*# sourceMappingURL=Dashboard.css.map */
