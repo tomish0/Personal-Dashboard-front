@@ -3,7 +3,7 @@ import axios from "axios";
 import { domain } from "../../../../whichDomain/whichDomain";
 
 export const getStock = createAsyncThunk(
-  "user/add/requestStatus",
+  "",
   async (data, thunkAPI) => {
     const url = `${domain}/stock`;
     axios({
@@ -22,7 +22,7 @@ export const getStock = createAsyncThunk(
 );
 
 export const getAllStocks = createAsyncThunk(
-  "user/add/requestStatus",
+  "",
   async (data, thunkAPI) => {
     const url = `${domain}/stock/all`;
     axios({

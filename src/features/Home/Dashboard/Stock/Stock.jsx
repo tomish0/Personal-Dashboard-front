@@ -8,10 +8,6 @@ import "../../../../css/Sport.css";
 function Stock() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllStocks());
-  }, [dispatch]);
-
   const handleStockSelect = (stock, timePeriod) => {
     if (stock.symbol) {
       dispatch(

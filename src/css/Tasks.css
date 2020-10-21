@@ -25,26 +25,10 @@
 .tasks-container .tasks-plus-btn .each-task input {
   font-family: main-font;
   border: none;
-  border-bottom: 2px solid white;
-  color: white;
+  border-bottom: 2px solid black;
+  color: black;
   width: 100%;
   font-size: 0.9em;
-}
-
-.tasks-container .tasks-plus-btn .each-task ::-webkit-input-placeholder {
-  color: white;
-}
-
-.tasks-container .tasks-plus-btn .each-task :-ms-input-placeholder {
-  color: white;
-}
-
-.tasks-container .tasks-plus-btn .each-task ::-ms-input-placeholder {
-  color: white;
-}
-
-.tasks-container .tasks-plus-btn .each-task ::placeholder {
-  color: white;
 }
 
 .tasks-container .tasks-plus-btn .each-task input[type="checkbox"] {

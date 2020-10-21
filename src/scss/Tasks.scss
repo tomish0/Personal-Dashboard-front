@@ -13,13 +13,13 @@
       input {
         font-family: main-font;
         border: none;
-        border-bottom: 2px solid white;
-        color: white;
+        border-bottom: 2px solid black;
+        color: black;
         width: 100%;
         font-size: 0.9em;
       }
       ::placeholder {
-        color: white;
+        // color: white;
       }
       input[type="checkbox"] {
         width: max-content;

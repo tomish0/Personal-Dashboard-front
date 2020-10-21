@@ -14,7 +14,9 @@ function App() {
   var development = true ? true : false
 
   return (
-    <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="App" 
+    // style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       {development || loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
         <Home
           username={

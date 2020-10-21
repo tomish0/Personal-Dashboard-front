@@ -1,14 +1,19 @@
 @import "./variables.scss";
 
-.news-container  {
-    color: white;
-    h2 {
-        margin-bottom: 20px;
+.news-container,
+.market-news-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  ol {
+    margin: 0;
+    padding: 0 5px 0 30px;
+    li {
+      margin-bottom: 10px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
     }
-    p {
-        margin-bottom: 20px;
-    }
-    a {
-        color: $color-yellow;
-    }
+  }
 }

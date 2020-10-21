@@ -1,11 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectMarketNews } from "./marketNewsSlice";
 import "../../../../css/News.css";
 
-function News(props) {
+function MarketNews(props) {
+  const marketNews = useSelector(selectMarketNews);
+
   return (
-    <div className="news-container">
+    <div className="market-news-container">
       <ol>
-        {props.news.map((item, index) => {
+        {marketNews.marketNews.map((item, index) => {
           return (
             <li key={index}>
               <a href={item.link} target="_blank">
@@ -19,4 +23,4 @@ function News(props) {
   );
 }
 
-export default News;
+export default MarketNews;

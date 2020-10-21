@@ -4,6 +4,7 @@ import { postTasks, addAllTasks, selectTasks } from "./tasksSlice";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import plusIcon from "../../../../Assets/Plus_button_small.png";
+import TasksTable from "./TasksTable";
 import "../../../../css/Tasks.css";
 
 function Tasks() {
@@ -14,7 +15,7 @@ function Tasks() {
 
   const taskData = useSelector(selectTasks);
 
-  const task = { value: "", status: "" };
+  const task = { task: "", priority: "Medium", status: false };
 
   var data = [...taskData.allTasks, task];
 
@@ -22,30 +23,68 @@ function Tasks() {
 
   const [changeMade, setChangeMade] = useState(false);
 
-  const handleNewTaskStatus = (e, index) => {
+  const handleNewTask = (e, index) => {
     setChangeMade(true);
     const correctIndex = index + 1;
     setAllTasks([
       ...allTasks.slice(0, index),
       {
         _id: allTasks[index]._id,
-        value: allTasks[index].value,
-        status: e.target.checked,
+        task: e.target.value,
+        priority: allTasks[index].priority,
+        status: false,
       },
       ...allTasks.slice(correctIndex),
     ]);
   };
 
-  const handleNewTaskValue = (e, index) => {
+  const handleNewPriority = (e, index) => {
+    const priority = e.target.value;
     setChangeMade(true);
     const correctIndex = index + 1;
     setAllTasks([
       ...allTasks.slice(0, index),
       {
-        _id: allTasks[index]._id, 
-        value: e.target.value,
-        status:
-          allTasks[index].status.length === 0 ? false : allTasks[index].status,
+        _id: allTasks[index]._id,
+        task: allTasks[index].task,
+        priority: priority,
+        status: false,
+      },
+      ...allTasks.slice(correctIndex),
+    ]);
+    var allTasksCopy = allTasks;
+    var newTask = allTasksCopy.slice(index, index + 1);
+    var taskObject = newTask[0];
+    allTasksCopy.splice(index, 1);
+    if (priority === "High") {
+      taskObject.priority = "High";
+      setAllTasks(() => [taskObject, ...allTasksCopy]);
+    }
+    if (priority === "Medium") {
+      const lowIndex = allTasksCopy.findIndex((item) => {
+        return item.priority === "Low";
+      });
+      taskObject.priority = "Medium";
+      allTasksCopy.splice(lowIndex, 0, taskObject);
+      setAllTasks(() => [...allTasksCopy]);
+    }
+    if (priority === "Low") {
+      taskObject.priority = "Low";
+      setAllTasks(() => [...allTasksCopy, taskObject]);
+
+    }
+  };
+
+  const handleNewStatus = (e, index) => {
+    setChangeMade(true);
+    const correctIndex = index + 1;
+    setAllTasks([
+      ...allTasks.slice(0, index),
+      {
+        _id: allTasks[index]._id,
+        task: allTasks[index].task,
+        priority: allTasks[index].priority,
+        status: e.target.checked,
       },
       ...allTasks.slice(correctIndex),
     ]);
@@ -56,7 +95,7 @@ function Tasks() {
       var taskData = [...allTasks];
       var data = [];
       taskData.forEach((task) => {
-        if (task.value.length > 0) {
+        if (task.length > 0) {
           data.push(task);
         }
       });
@@ -75,28 +114,12 @@ function Tasks() {
   return (
     <div className="tasks-container">
       <div className="tasks-plus-btn">
-        {allTasks.map((item, index) => {
-          return (
-            <div className="each-task" key={index}>
-              <input
-                type="text"
-                id={`id-${index}-value`}
-                name="value"
-                placeholder={`Task ${index + 1}...`}
-                value={allTasks[index].value}
-                onChange={(e) => handleNewTaskValue(e, index)}
-              />
-              <input
-                type="checkbox"
-                checked={item.status}
-                id={`id-${index}-status`}
-                name="status"
-                value={allTasks[index].status}
-                onChange={(e) => handleNewTaskStatus(e, index)}
-              />
-            </div>
-          );
-        })}
+        <TasksTable
+          allTasks={allTasks}
+          handleNewTask={handleNewTask}
+          handleNewPriority={handleNewPriority}
+          handleNewStatus={handleNewStatus}
+        />
         <img
           src={plusIcon}
           alt="icon-plus"
