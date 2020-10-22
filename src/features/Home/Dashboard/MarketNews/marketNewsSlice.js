@@ -11,7 +11,6 @@ export const getMarketNewsData = createAsyncThunk("", async (na, thunkAPI) => {
     // headers: { userid: userId },
   })
     .then((res) => {
-      console.log(res.data);
       const marketNewsData = [];
       res.data.forEach((item) => {
         if (item.category === "top news") {

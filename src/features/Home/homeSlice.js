@@ -20,19 +20,22 @@ export const homeSlice = createSlice({
         haveMarketNewsData,
         haveTasksData,
       } = action.payload;
-      state.haveWeatherData = haveWeatherData ? haveWeatherData : state.haveWeatherData;
+      state.haveWeatherData = haveWeatherData
+        ? haveWeatherData
+        : state.haveWeatherData;
       state.haveNewsData = haveNewsData ? haveNewsData : state.haveNewsData;
       state.haveStockData = haveStockData ? haveStockData : state.haveStockData;
-      state.haveMarketNewsData = haveMarketNewsData ? haveMarketNewsData : state.haveMarketNewsData;
+      state.haveMarketNewsData = haveMarketNewsData
+        ? haveMarketNewsData
+        : state.haveMarketNewsData;
       state.haveTasksData = haveTasksData ? haveTasksData : state.haveTasksData;
 
       if (
         state.haveWeatherData &&
         state.haveNewsData &&
         state.haveStockData &&
-        state.haveMarketNewsData 
-        // &&
-        // state.haveTasksData
+        state.haveMarketNewsData &&
+        state.haveTasksData
       ) {
         state.loadCompleted = true;
       }

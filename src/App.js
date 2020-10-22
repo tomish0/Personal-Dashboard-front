@@ -11,7 +11,7 @@ function App() {
   const loginData = useSelector(selectLogin);
   const signUpData = useSelector(selectSignUp);
 
-  var development = true ? true : false
+  var development = false ? true : false
 
   return (
     <div className="App" 

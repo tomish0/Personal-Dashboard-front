@@ -10,7 +10,7 @@ function NewTask(props) {
   } = props;
 
   return (
-    <tr>
+    <tr className="new-task">
       <td>
         <input
           type="text"

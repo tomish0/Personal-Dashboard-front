@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postTasks } from "./tasksSlice";
+import { updateTask, addNewTask, addNewTaskIds } from "./tasksSlice";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import TasksTable from "./TasksTable";
@@ -41,29 +41,16 @@ function Tasks(props) {
   const handleAddNewTask = () => {
     var priority = newTask.priority;
     var taskObject = newTask;
-    var allTasksCopy = allTasks;
     if (newTask.task.length > 0) {
-      handlePriorityPosition(allTasksCopy, priority, taskObject);
+      handlePriorityPosition(allTasks, priority, taskObject);
+      const userId =
+        loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
+      var data = {
+        userId: userId,
+        taskData: newTask,
+      };
+      dispatch(addNewTask(data));
       setNewTask(task);
-    }
-  };
-
-  const handlePriorityPosition = (allTasksCopy, priority, taskObject) => {
-    if (priority === "High") {
-      taskObject.priority = "High";
-      setAllTasks(() => [taskObject, ...allTasksCopy]);
-    }
-    if (priority === "Medium") {
-      const lowIndex = allTasksCopy.findIndex((item) => {
-        return item.priority === "Low";
-      });
-      taskObject.priority = "Medium";
-      allTasksCopy.splice(lowIndex, 0, taskObject);
-      setAllTasks(() => [...allTasksCopy]);
-    }
-    if (priority === "Low") {
-      taskObject.priority = "Low";
-      setAllTasks(() => [...allTasksCopy, taskObject]);
     }
   };
 
@@ -81,12 +68,42 @@ function Tasks(props) {
       },
       ...allTasks.slice(correctIndex),
     ]);
-    // reorder tasks in ascending order of priority
-    var allTasksCopy = allTasks;
-    var newTask = allTasksCopy.slice(index, index + 1);
-    var taskObject = newTask[0];
-    allTasksCopy.splice(index, 1);
-    handlePriorityPosition(allTasksCopy, priority, taskObject);
+    var newTask = allTasks.slice(index, index + 1);
+    var taskObject = { ...newTask[0] };
+    var topPriorityTasks = allTasks.slice(0, index);
+    var bottomPriorityTasks = allTasks.slice(index + 1);
+    var newArray = [...topPriorityTasks, ...bottomPriorityTasks];
+    handlePriorityPosition(newArray, priority, taskObject);
+    console.log(taskObject);
+    dispatch(updateTask(taskObject))
+  };
+
+  const handlePriorityPosition = (newArray, priority, taskObject) => {
+    if (priority === "High") {
+      taskObject.priority = "High";
+      setAllTasks(() => [taskObject, ...newArray]);
+    }
+    if (priority === "Medium") {
+      taskObject.priority = "Medium";
+      const lowIndex = allTasks.findIndex((item) => {
+        return item.priority === "Low";
+      });
+      if (lowIndex !== -1) {
+        var highPriorityTasks = newArray.slice(0, lowIndex);
+        var lowPriorityTasks = newArray.slice(lowIndex);
+        setAllTasks(() => [
+          ...highPriorityTasks,
+          taskObject,
+          ...lowPriorityTasks,
+        ]);
+      } else {
+        setAllTasks(() => [...newArray, taskObject]);
+      }
+    }
+    if (priority === "Low") {
+      taskObject.priority = "Low";
+      setAllTasks(() => [...newArray, taskObject]);
+    }
   };
 
   const [taskDelete, setTaskDelete] = useState(false);

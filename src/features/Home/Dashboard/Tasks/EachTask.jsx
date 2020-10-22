@@ -8,6 +8,7 @@ function EachTask(props) {
     handleOldPriority,
     handleTaskComplete,
   } = props;
+  
   return (
     <tr className="each-task">
       <td>{allTasks[index].task}</td>

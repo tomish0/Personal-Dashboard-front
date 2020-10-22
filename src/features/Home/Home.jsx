@@ -34,10 +34,10 @@ function Home(props) {
           },
         };
         await dispatch(getWeatherData(data.weather));
-        await dispatch(getNewsData());
+        // await dispatch(getNewsData());
         await dispatch(getTasksData(data.userId));
-        await dispatch(getMarketNewsData())
-        await dispatch(getAllStocks())
+        await dispatch(getMarketNewsData());
+        await dispatch(getAllStocks());
       } catch (err) {
         console.log(err);
       }
@@ -45,17 +45,15 @@ function Home(props) {
   }, [dispatch, loginData.userId, signUpData.userId]);
 
   return (
-      <Switch>
-        <Route path="/" exact component={Home}>
-          <Redirect to="/Home" />
-        </Route>
-        <Route exact path="/:a(login|signup)">
-          <Redirect to="/Home" />
-        </Route>
-        <Dashboard
-          username={props.username}
-        />
-      </Switch>
+    <Switch>
+      <Route path="/" exact component={Home}>
+        <Redirect to="/Home" />
+      </Route>
+      <Route exact path="/:a(login|signup)">
+        <Redirect to="/Home" />
+      </Route>
+      <Dashboard username={props.username} />
+    </Switch>
   );
 }
 

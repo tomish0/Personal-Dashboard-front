@@ -13,13 +13,26 @@ export const getTasksData = createAsyncThunk(
       headers: { userid: userId },
     })
       .then((res) => {
-        res.data.forEach((item) => {
-          delete item.userId;
+        var taskData = [];
+        res.data.forEach((task) => {
+          if (task.priority === "High") {
+            taskData.unshift(task);
+          }
+          if (task.priority === "Medium") {
+            const lowIndex = taskData.findIndex((item) => {
+              return item.priority === "Low";
+            });
+            if (lowIndex === -1) {
+              taskData.push(task);
+            } else {
+              taskData.splice(lowIndex, 0, task);
+            }
+          }
+          if (task.priority === "Low") {
+            taskData.push(task);
+          }
         });
-        console.log(res.data);
-        thunkAPI.dispatch(
-          addAllTasks(res.data)
-        );
+        thunkAPI.dispatch(addAllTasks(taskData));
         thunkAPI.dispatch(checkDataCollection({ haveTasksData: true }));
       })
       .catch((err) => {
@@ -28,27 +41,37 @@ export const getTasksData = createAsyncThunk(
   }
 );
 
-export const postTasks = createAsyncThunk(
-  "user/add/requestStatus",
-  async (data, thunkAPI) => {
-    const url = `${domain}/tasks`;
-    // const state = thunkAPI.getState();
-    // const allTasks = state.tasks.allTasks;
-    axios({
-      method: "post",
-      url: url,
-      data: data.data,
-      headers: { userid: data.userId },
+export const addNewTask = createAsyncThunk("", async (data, thunkAPI) => {
+  const url = `${domain}/tasks/add`;
+  axios({
+    method: "post",
+    url: url,
+    data: data.taskData,
+    headers: { userid: data.userId },
+  })
+    .then((res) => {
+      thunkAPI.dispatch(getTasksData(data.userId));
     })
-      .then((res) => {
-        thunkAPI.dispatch(addNewTaskIds(res.data));
-        thunkAPI.dispatch(getTasksData(data.userId));
-      })
-      .catch((err) => {
-        console.dir(err);
-      });
-  }
-);
+    .catch((err) => {
+      console.dir(err);
+    });
+});
+
+export const updateTask = createAsyncThunk("", async (data, thunkAPI) => {
+  const url = `${domain}/tasks/update`;
+  axios({
+    method: "post",
+    url: url,
+    data: data,
+    headers: { userid: data.userId },
+  })
+    .then((res) => {
+      thunkAPI.dispatch(getTasksData(data.userId));
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
+});
 
 // redux toolkit slice of store with initial state & reducers included
 export const tasksSlice = createSlice({
@@ -60,9 +83,6 @@ export const tasksSlice = createSlice({
   reducers: {
     addAllTasks: (state, action) => {
       state.allTasks = action.payload;
-    },
-    addNewTaskIds: (state, action) => {
-      state.newTaskIds = action.payload;
     },
   },
 });
