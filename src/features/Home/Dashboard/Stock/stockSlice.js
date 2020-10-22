@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { checkDataCollection } from "../../homeSlice";
 import { domain } from "../../../../whichDomain/whichDomain";
 
 export const getStock = createAsyncThunk(
@@ -32,6 +33,8 @@ export const getAllStocks = createAsyncThunk(
     })
       .then((res) => {
         thunkAPI.dispatch(addAllStocks(res.data));
+        thunkAPI.dispatch(checkDataCollection({ haveStockData: true }));
+
       })
       .catch((err) => {
         console.log(err);

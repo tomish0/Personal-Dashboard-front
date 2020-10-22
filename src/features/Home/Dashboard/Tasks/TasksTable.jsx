@@ -1,8 +1,18 @@
 import React from "react";
+import NewTask from "./NewTask";
+import EachTask from "./EachTask";
 
 function TasksTable(props) {
-  const { allTasks, handleNewTask, handleNewPriority, handleNewStatus } = props;
-  
+  const {
+    allTasks,
+    handleNewTask,
+    handleNewPriority,
+    handleOldPriority,
+    handleTaskComplete,
+    newTask,
+    handleAddNewTask
+  } = props;
+
   return (
     <table>
       <tbody>
@@ -13,41 +23,22 @@ function TasksTable(props) {
         </tr>
         {allTasks.map((item, index) => {
           return (
-            <tr className="each-task" key={index}>
-              <td>
-                <input
-                  type="text"
-                  id={`id-${index}-value`}
-                  name="value"
-                  placeholder={`Task ${index + 1}...`}
-                  value={allTasks[index].task}
-                  onChange={(e) => handleNewTask(e, index)}
-                />
-              </td>
-              <td>
-                <select
-                  className="drop-down"
-                  onChange={(e) => handleNewPriority(e, index)}
-                  value={allTasks[index].priority}
-                >
-                  <option value={"High"}>High</option>
-                  <option value={"Medium"}>Medium</option>
-                  <option value={"Low"}>Low</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={item.status}
-                  id={`id-${index}-status`}
-                  name="status"
-                  value={allTasks[index].status}
-                  onChange={(e) => handleNewStatus(e, index)}
-                />
-              </td>
-            </tr>
+            <EachTask
+              key={index}
+              index={index}
+              allTasks={allTasks}
+              handleNewTask={handleNewTask}
+              handleOldPriority={handleOldPriority}
+              handleTaskComplete={handleTaskComplete}
+            />
           );
         })}
+        <NewTask
+          handleNewTask={handleNewTask}
+          handleNewPriority={handleNewPriority}
+          newTask={newTask}
+          handleAddNewTask={handleAddNewTask}
+        />
       </tbody>
     </table>
   );

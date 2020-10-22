@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "ACAA,UAAU;EACN,WAAW,EAAE,SAAS;EACtB,GAAG,EAAE,qCAAqC;;;ADA9C,AAAA,EAAE,CAAC;EACD,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,aAAa;EACrB,KAAK,EAAE,KAAK;CAIb",
+    "mappings": "ACAA,UAAU;EACN,WAAW,EAAE,SAAS;EACtB,GAAG,EAAE,qCAAqC;;;ADA9C,AAAA,EAAE,CAAC;EACD,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,UAAU;EAClB,KAAK,EAAE,KAAK;CAIb",
     "sources": [
         "../scss/WelcomeMessage.scss",
         "../scss/variables.scss"

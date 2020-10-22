@@ -27,14 +27,9 @@ p {
   margin: 0;
 }
 
-h1 {
-  color: white;
-}
-
 input {
   outline: none;
   background: transparent;
-  color: white;
 }
 
 input:-webkit-autofill,

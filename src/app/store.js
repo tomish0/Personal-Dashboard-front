@@ -6,7 +6,8 @@ import photosSlice from "../features/Home/Dashboard/Photos/photosSlice";
 import newsSlice from "../features/Home/Dashboard/News/newsSlice";
 import tasksSlice from "../features/Home/Dashboard/Tasks/tasksSlice";
 import stockSlice from "../features/Home/Dashboard/Stock/stockSlice";
-import marketNewsSlice  from "../features/Home/Dashboard/MarketNews/marketNewsSlice";
+import marketNewsSlice from "../features/Home/Dashboard/MarketNews/marketNewsSlice";
+import weatherSlice from "../features/Home/Header/Weather/weatherSlice";
 
 export default configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export default configureStore({
     tasks: tasksSlice,
     stock: stockSlice,
     marketNews: marketNewsSlice,
+    weather: weatherSlice,
     // middleware: () =>
     //   getDefaultMiddleware({
     //     thunk: false,

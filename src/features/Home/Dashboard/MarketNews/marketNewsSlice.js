@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { domain } from "../../../../whichDomain/whichDomain";
-import { addMarketNews } from "../../homeSlice";
+import { checkDataCollection } from "../../homeSlice";
 
 export const getMarketNewsData = createAsyncThunk("", async (na, thunkAPI) => {
   const url = `${domain}/market-news`;
@@ -11,7 +11,7 @@ export const getMarketNewsData = createAsyncThunk("", async (na, thunkAPI) => {
     // headers: { userid: userId },
   })
     .then((res) => {
-      console.log(res);
+      console.log(res.data);
       const marketNewsData = [];
       res.data.forEach((item) => {
         if (item.category === "top news") {
@@ -23,6 +23,7 @@ export const getMarketNewsData = createAsyncThunk("", async (na, thunkAPI) => {
         }
       });
       thunkAPI.dispatch(addMarketNewsData(marketNewsData));
+      thunkAPI.dispatch(checkDataCollection({ haveMarketNewsData: true }));
     })
     .catch((err) => {
       console.log(err);

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { checkDataCollection } from "../../homeSlice";
 import { domain } from "../../../../whichDomain/whichDomain";
 
 export const getTasksData = createAsyncThunk(
@@ -15,7 +16,11 @@ export const getTasksData = createAsyncThunk(
         res.data.forEach((item) => {
           delete item.userId;
         });
-        thunkAPI.dispatch(addAllTasks(res.data));
+        console.log(res.data);
+        thunkAPI.dispatch(
+          addAllTasks(res.data)
+        );
+        thunkAPI.dispatch(checkDataCollection({ haveTasksData: true }));
       })
       .catch((err) => {
         console.log(err);
@@ -25,19 +30,19 @@ export const getTasksData = createAsyncThunk(
 
 export const postTasks = createAsyncThunk(
   "user/add/requestStatus",
-  async (userId, thunkAPI) => {
+  async (data, thunkAPI) => {
     const url = `${domain}/tasks`;
-    const state = thunkAPI.getState();
-    const allTasks = state.tasks.allTasks;
+    // const state = thunkAPI.getState();
+    // const allTasks = state.tasks.allTasks;
     axios({
       method: "post",
       url: url,
-      data: allTasks,
-      headers: { userid: userId },
+      data: data.data,
+      headers: { userid: data.userId },
     })
       .then((res) => {
         thunkAPI.dispatch(addNewTaskIds(res.data));
-        thunkAPI.dispatch(getTasksData(userId))
+        thunkAPI.dispatch(getTasksData(data.userId));
       })
       .catch((err) => {
         console.dir(err);

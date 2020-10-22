@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getStock, getAllStocks, selectStockData } from "./stockSlice";
+import { getStock } from "./stockSlice";
 import StockChart from "./StockChart";
 import StockOptions from "./StockOptions";
 import "../../../../css/Sport.css";
 
-function Stock() {
+function Stock(props) {
+  const { stockData } = props;
+
   const dispatch = useDispatch();
 
   const handleStockSelect = (stock, timePeriod) => {
@@ -18,8 +20,6 @@ function Stock() {
       );
     }
   };
-
-  const stockData = useSelector(selectStockData);
 
   const data = stockData.stock;
 

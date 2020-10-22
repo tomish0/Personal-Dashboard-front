@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addWeather } from "../../homeSlice";
+import { checkDataCollection } from "../../homeSlice";
 
 export const getWeatherData = createAsyncThunk(
   "user/add/requestStatus",
@@ -29,13 +29,13 @@ export const getWeatherData = createAsyncThunk(
           icon = "Clouds";
         }
         thunkAPI.dispatch(
-          addWeather({
-            haveWeatherData: true,
+          addWeatherData({
             temperature: temp,
             icon: icon,
             location: location,
           })
         );
+        thunkAPI.dispatch(checkDataCollection({ haveWeatherData: true }));
       })
       .catch((err) => {
         console.dir(err);

@@ -1,49 +1,42 @@
 import React from "react";
+import Loader from "react-loader-spinner";
 import { useSelector } from "react-redux";
+import { selectWeather } from "../Header/Weather/weatherSlice";
+import { selectTasks } from "./Tasks/tasksSlice";
+import { selectNews } from "./News/newsSlice";
+import { selectMarketNews } from "./MarketNews/marketNewsSlice";
+import { selectStockData } from "./Stock/stockSlice";
 import { selectHome } from "../homeSlice";
-import News from "./News/News";
-import Stock from "./Stock/Stock";
-import MarketNews from "./MarketNews/MarketNews";
-import Tasks from "./Tasks/Tasks";
 import Header from "../Header/Header";
+import DashboardMain from "./DashboardMain";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../../../css/Dashboard.css";
 
 function Dashboard(props) {
+  const tasksData = useSelector(selectTasks);
+  const newsData = useSelector(selectNews);
+  const marketNewsData = useSelector(selectMarketNews);
+  const stockData = useSelector(selectStockData);
+  const weatherData = useSelector(selectWeather);
   const homeData = useSelector(selectHome);
 
   return (
     <div className="dashboard-container">
-      <Header username={props.username} />
-      <div className="all-section-container">
-        <div className="news-tasks-sections-container">
-          <div className="two-news-container">
-            <section>
-              <h2>BBC News</h2>
-              <div className="content">
-                <News news={homeData.news.newsData} />
-              </div>
-            </section>
-            <section>
-              <h2>Market News</h2>
-              <div className="content">
-                <MarketNews />
-              </div>
-            </section>
-          </div>
-          <section className='tasks-section'>
-            <h2>Tasks</h2>
-            <div className="content">
-              <Tasks />
-            </div>
-          </section>
-        </div>
-        <section>
-          <h2>US Stock Market</h2>
-          <div className="content">
-            <Stock />
-          </div>
-        </section>
-      </div>
+      <Header
+        username={props.username}
+        loadCompleted={homeData.loadCompleted}
+        weatherData={weatherData}
+      />
+      {homeData.loadCompleted ? (
+        <DashboardMain
+          news={newsData.newsData}
+          marketNews={marketNewsData.marketNews}
+          allTasksData={tasksData.allTasks}
+          stockData={stockData}
+        />
+      ) : (
+        <Loader type="Bars" color="#00BFFF" height={100} width={100} />
+      )}
     </div>
   );
 }

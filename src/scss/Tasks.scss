@@ -1,29 +1,33 @@
 @import "variables.scss";
 
 .tasks-container {
+  table {
+    width: 90%;
+    align-items: center;
+    margin: 0 auto;
+    tbody {
+      tr {
+        th {
+          border-bottom: 1px solid black;
+        }
+        th,
+        td {
+          padding: 5px;
+          input {
+            font-family: main-font;
+            border: none;
+            color: black;
+            border-bottom: 1px solid black;
+          }
+          select {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
   .tasks-plus-btn {
     width: 80%;
     margin: 0 auto;
-    .each-task {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 30px;
-      margin: 15px 0 15px 0;
-      input {
-        font-family: main-font;
-        border: none;
-        border-bottom: 2px solid black;
-        color: black;
-        width: 100%;
-        font-size: 0.9em;
-      }
-      ::placeholder {
-        // color: white;
-      }
-      input[type="checkbox"] {
-        width: max-content;
-      }
-    }
   }
 }

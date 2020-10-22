@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addNews } from "../../homeSlice";
+import { checkDataCollection } from "../../homeSlice";
 
 export const getNewsData = createAsyncThunk(
   "user/add/requestStatus",
@@ -20,14 +20,10 @@ export const getNewsData = createAsyncThunk(
           title: xmlTitles[i].childNodes[0].nodeValue,
           link: xmlLinks[i].childNodes[0].nodeValue,
         };
-        newsData.push(newsObj)
+        newsData.push(newsObj);
       }
-      thunkAPI.dispatch(
-        addNews({
-          haveNewsData: true,
-          newsData: newsData
-        })
-      );
+      thunkAPI.dispatch(addNewsData(newsData));
+      thunkAPI.dispatch(checkDataCollection({ haveNewsData: true }));
     } catch (err) {
       console.log(err);
     }
@@ -38,16 +34,11 @@ export const getNewsData = createAsyncThunk(
 export const newsSlice = createSlice({
   name: "news",
   initialState: {
-    newsTitle: "",
-    newsDescription: "",
-    newsLink: "",
+    newsData: "",
   },
   reducers: {
     addNewsData: (state, action) => {
-      const { newsTitle, newsDescription, newsLink } = action.payload;
-      state.newsTitle = newsTitle;
-      state.newsDescription = newsDescription;
-      state.newsLink = newsLink;
+      state.newsData = action.payload;
     },
   },
 });

@@ -33,8 +33,8 @@ function Home(props) {
             longtitude: geolocation.longtitude.toFixed(3),
           },
         };
-        await dispatch(getNewsData());
         await dispatch(getWeatherData(data.weather));
+        await dispatch(getNewsData());
         await dispatch(getTasksData(data.userId));
         await dispatch(getMarketNewsData())
         await dispatch(getAllStocks())
