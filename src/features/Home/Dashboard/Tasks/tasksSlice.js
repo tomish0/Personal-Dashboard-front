@@ -50,6 +50,7 @@ export const addNewTask = createAsyncThunk("", async (data, thunkAPI) => {
     headers: { userid: data.userId },
   })
     .then((res) => {
+      console.log(res.data);
       thunkAPI.dispatch(getTasksData(data.userId));
     })
     .catch((err) => {
@@ -67,6 +68,23 @@ export const updateTask = createAsyncThunk("", async (data, thunkAPI) => {
   })
     .then((res) => {
       thunkAPI.dispatch(getTasksData(data.userId));
+    })
+    .catch((err) => {
+      console.dir(err);
+    });
+});
+
+export const deleteTask = createAsyncThunk("", async (data, thunkAPI) => {
+  const url = `${domain}/tasks`;
+  axios({
+    method: "delete",
+    url: url,
+    data: { taskDBId: data.taskDBId },
+    headers: { userid: data.userId },
+  })
+    .then((res) => {
+      console.log(res);
+      // thunkAPI.dispatch(getTasksData(data.userId));
     })
     .catch((err) => {
       console.dir(err);

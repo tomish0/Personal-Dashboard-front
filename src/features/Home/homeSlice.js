@@ -8,7 +8,6 @@ export const homeSlice = createSlice({
     haveWeatherData: false,
     haveNewsData: false,
     haveStockData: false,
-    haveMarketNewsData: false,
     haveTasksData: false,
   },
   reducers: {
@@ -17,7 +16,6 @@ export const homeSlice = createSlice({
         haveWeatherData,
         haveNewsData,
         haveStockData,
-        haveMarketNewsData,
         haveTasksData,
       } = action.payload;
       state.haveWeatherData = haveWeatherData
@@ -25,16 +23,12 @@ export const homeSlice = createSlice({
         : state.haveWeatherData;
       state.haveNewsData = haveNewsData ? haveNewsData : state.haveNewsData;
       state.haveStockData = haveStockData ? haveStockData : state.haveStockData;
-      state.haveMarketNewsData = haveMarketNewsData
-        ? haveMarketNewsData
-        : state.haveMarketNewsData;
       state.haveTasksData = haveTasksData ? haveTasksData : state.haveTasksData;
 
       if (
         state.haveWeatherData &&
         state.haveNewsData &&
         state.haveStockData &&
-        state.haveMarketNewsData &&
         state.haveTasksData
       ) {
         state.loadCompleted = true;

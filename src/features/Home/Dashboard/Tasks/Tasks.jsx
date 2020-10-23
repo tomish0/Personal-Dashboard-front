@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTask, addNewTask, addNewTaskIds } from "./tasksSlice";
+import { updateTask, addNewTask, deleteTask } from "./tasksSlice";
 import { selectLogin } from "../../../Login/loginSlice";
 import { selectSignUp } from "../../../SignUp/signUpSlice";
 import TasksTable from "./TasksTable";
@@ -20,7 +20,9 @@ function Tasks(props) {
 
   const [allTasks, setAllTasks] = useState(allTasksData);
 
-  const [changeMade, setChangeMade] = useState(false);
+  useEffect(() => {
+    setAllTasks(allTasksData);
+  }, [allTasksData]);
 
   const handleNewTask = (e) => {
     setNewTask({
@@ -56,7 +58,6 @@ function Tasks(props) {
 
   const handleOldPriority = (e, index) => {
     const priority = e.target.value;
-    setChangeMade(true);
     const correctIndex = index + 1;
     setAllTasks([
       ...allTasks.slice(0, index),
@@ -70,12 +71,9 @@ function Tasks(props) {
     ]);
     var newTask = allTasks.slice(index, index + 1);
     var taskObject = { ...newTask[0] };
-    var topPriorityTasks = allTasks.slice(0, index);
-    var bottomPriorityTasks = allTasks.slice(index + 1);
-    var newArray = [...topPriorityTasks, ...bottomPriorityTasks];
+    var newArray = removeTaskFromLocalState(index)
     handlePriorityPosition(newArray, priority, taskObject);
-    console.log(taskObject);
-    dispatch(updateTask(taskObject))
+    dispatch(updateTask(taskObject));
   };
 
   const handlePriorityPosition = (newArray, priority, taskObject) => {
@@ -106,14 +104,25 @@ function Tasks(props) {
     }
   };
 
-  const [taskDelete, setTaskDelete] = useState(false);
-
   const handleTaskComplete = (index) => {
-    setTaskDelete(true);
-    var allTasksCopy = allTasks;
-    allTasksCopy.splice(index, 1);
-    setAllTasks(() => [...allTasksCopy]);
+    const userId =
+      loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
+    var data = {
+      userId: userId,
+      taskDBId: allTasks[index]._id,
+    };
+    dispatch(deleteTask(data));
+    var newArray = removeTaskFromLocalState(index)
+    setAllTasks(() => [...newArray]);
+
   };
+
+  const removeTaskFromLocalState = (index) => {
+    var topPriorityTasks = allTasks.slice(0, index);
+    var bottomPriorityTasks = allTasks.slice(index + 1);
+    var newArray = [...topPriorityTasks, ...bottomPriorityTasks];
+    return newArray
+  }
 
   // useEffect(() => {
   //   const userId =

@@ -1,7 +1,7 @@
 import React from "react";
 import News from "./News/News";
 import Stock from "./Stock/Stock";
-import MarketNews from "./MarketNews/MarketNews";
+import MarketNews from "./News/MarketNews";
 import Tasks from "./Tasks/Tasks";
 
 function DashboardMain(props) {
@@ -12,7 +12,7 @@ function DashboardMain(props) {
       <div className="news-tasks-sections-container">
         <div className="two-news-container">
           <section>
-            <h2>BBC News</h2>
+            <h2>Top News</h2>
             <div className="content">
               <News news={news} />
             </div>

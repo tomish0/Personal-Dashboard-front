@@ -1,44 +1,49 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { domain } from "../../../../whichDomain/whichDomain";
 import { checkDataCollection } from "../../homeSlice";
 
-export const getNewsData = createAsyncThunk(
-  "user/add/requestStatus",
-  async (na, thunkAPI) => {
-    try {
-      const data = await axios(
-        "https://cors-anywhere.herokuapp.com/http://feeds.bbci.co.uk/news/rss.xml"
-      );
-      const xmlData = data.data;
-      var domParser = new DOMParser();
-      var xmlDoc = domParser.parseFromString(xmlData, "text/xml");
-      var xmlTitles = xmlDoc.getElementsByTagName("title");
-      var xmlLinks = xmlDoc.getElementsByTagName("link");
-      var newsData = [];
-      for (var i = 2; i < 10; i++) {
-        var newsObj = {
-          title: xmlTitles[i].childNodes[0].nodeValue,
-          link: xmlLinks[i].childNodes[0].nodeValue,
+export const getNewsData = createAsyncThunk("", async (na, thunkAPI) => {
+  const url = `${domain}/news`;
+  axios({
+    method: "get",
+    url: url,
+    // headers: { userid: userId },
+  })
+    .then((res) => {
+      const newsData = [];
+      const marketNewsData = [];
+      res.data.forEach((item) => {
+        var data = {
+          title: item.headline,
+          link: item.url,
         };
-        newsData.push(newsObj);
-      }
-      thunkAPI.dispatch(addNewsData(newsData));
+        if (item.category === "top news") {
+          newsData.push(data);
+        } else {
+          marketNewsData.push(data);
+        }
+      });
+      thunkAPI.dispatch(addNewsData({ newsData, marketNewsData }));
       thunkAPI.dispatch(checkDataCollection({ haveNewsData: true }));
-    } catch (err) {
+    })
+    .catch((err) => {
       console.log(err);
-    }
-  }
-);
+    });
+});
 
 // redux toolkit slice of store with initial state & reducers included
 export const newsSlice = createSlice({
   name: "news",
   initialState: {
-    newsData: "",
+    newsData: [],
+    marketNewsData: [],
   },
   reducers: {
     addNewsData: (state, action) => {
-      state.newsData = action.payload;
+      const { newsData, marketNewsData } = action.payload;
+      state.newsData = newsData;
+      state.marketNewsData = marketNewsData;
     },
   },
 });

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { selectWeather } from "../Header/Weather/weatherSlice";
 import { selectTasks } from "./Tasks/tasksSlice";
 import { selectNews } from "./News/newsSlice";
-import { selectMarketNews } from "./MarketNews/marketNewsSlice";
 import { selectStockData } from "./Stock/stockSlice";
 import { selectHome } from "../homeSlice";
 import Header from "../Header/Header";
@@ -15,7 +14,6 @@ import "../../../css/Dashboard.css";
 function Dashboard(props) {
   const tasksData = useSelector(selectTasks);
   const newsData = useSelector(selectNews);
-  const marketNewsData = useSelector(selectMarketNews);
   const stockData = useSelector(selectStockData);
   const weatherData = useSelector(selectWeather);
   const homeData = useSelector(selectHome);
@@ -30,7 +28,7 @@ function Dashboard(props) {
       {homeData.loadCompleted ? (
         <DashboardMain
           news={newsData.newsData}
-          marketNews={marketNewsData.marketNews}
+          marketNews={newsData.marketNewsData}
           allTasksData={tasksData.allTasks}
           stockData={stockData}
         />

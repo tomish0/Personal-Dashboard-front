@@ -7,7 +7,6 @@ import { getNewsData } from "./Dashboard/News/newsSlice";
 import { getWeatherData } from "./Header/Weather/weatherSlice";
 import { getTasksData } from "./Dashboard/Tasks/tasksSlice";
 import { getAllStocks } from "./Dashboard/Stock/stockSlice";
-import { getMarketNewsData } from "./Dashboard/MarketNews/marketNewsSlice";
 import Dashboard from "./Dashboard/Dashboard";
 
 function Home(props) {
@@ -34,9 +33,8 @@ function Home(props) {
           },
         };
         await dispatch(getWeatherData(data.weather));
-        // await dispatch(getNewsData());
+        await dispatch(getNewsData());
         await dispatch(getTasksData(data.userId));
-        await dispatch(getMarketNewsData());
         await dispatch(getAllStocks());
       } catch (err) {
         console.log(err);
