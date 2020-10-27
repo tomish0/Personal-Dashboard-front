@@ -31,7 +31,7 @@ function NewTask(props) {
           <option value={"Low"}>Low</option>
         </select>
       </td>
-      <td>
+      <td className="button-cell-container">
         <Button btnMessage={"Add"} onClick={handleAddNewTask} />
       </td>
     </tr>

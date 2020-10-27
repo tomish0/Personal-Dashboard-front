@@ -33,7 +33,15 @@ function Dashboard(props) {
           stockData={stockData}
         />
       ) : (
-        <Loader type="Bars" color="#00BFFF" height={100} width={100} />
+        <div className="loading-spinner-container">
+          <Loader
+            type="Bars"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            className={"loading-spinner"}
+          />
+        </div>
       )}
     </div>
   );

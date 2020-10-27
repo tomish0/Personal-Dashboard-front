@@ -18,17 +18,18 @@
 .news-container ol,
 .market-news-container ol {
   margin: 0;
-  padding: 0 5px 0 30px;
+  padding: 0 5px 0 35px;
 }
 
 .news-container ol li,
 .market-news-container ol li {
   margin-bottom: 10px;
+  color: #dff9fd;
 }
 
 .news-container ol li a,
 .market-news-container ol li a {
-  color: black;
+  color: #dff9fd;
   text-decoration: none;
 }
 /*# sourceMappingURL=News.css.map */

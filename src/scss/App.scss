@@ -1,13 +1,15 @@
 @import "variables.scss";
 
 .App {
-    background-position: center;
-    background-size: cover;
-    min-height: 100vh;
-    min-width: 100vw;
-    font-family: main-font;
-    padding: 10px 30px 30px 30px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: main-font;
+  padding: 10px 30px 30px 30px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  color: $color-white;
+  background-color: $color-black;
 }

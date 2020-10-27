@@ -1,0 +1,13 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+.stock-chart .main-svg {
+  background: none !important;
+}
+
+.stock-chart .rangeslider-bg {
+  fill: none;
+}
+/*# sourceMappingURL=StockChart.css.map */

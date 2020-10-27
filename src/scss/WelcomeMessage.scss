@@ -3,8 +3,9 @@
 h1 {
   text-align: center;
   margin: 0 0 40px 0;
-  color: black;
+  color: $color-white;
   span {
-    // color: $color-yellow;
+    color: $color-blue;
+    font-weight: bold;
   }
 }

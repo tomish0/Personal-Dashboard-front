@@ -7,11 +7,12 @@
   text-align: left;
   ol {
     margin: 0;
-    padding: 0 5px 0 30px;
+    padding: 0 5px 0 35px;
     li {
       margin-bottom: 10px;
+      color: $color-white;
       a {
-        color: black;
+        color: $color-white;
         text-decoration: none;
       }
     }

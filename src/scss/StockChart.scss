@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+.stock-chart {
+  .main-svg {
+    background: none !important;
+  }
+  .rangeslider-bg {
+    fill: none;
+  }
+}

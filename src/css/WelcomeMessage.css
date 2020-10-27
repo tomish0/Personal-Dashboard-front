@@ -6,6 +6,11 @@
 h1 {
   text-align: center;
   margin: 0 0 40px 0;
-  color: black;
+  color: #dff9fd;
+}
+
+h1 span {
+  color: #00BFFF;
+  font-weight: bold;
 }
 /*# sourceMappingURL=WelcomeMessage.css.map */

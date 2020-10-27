@@ -8,26 +8,40 @@
     tbody {
       tr {
         th {
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid $color-white;
         }
         th,
         td {
           padding: 5px;
           input {
             font-family: main-font;
+            font-size: 0.9em;
             border: none;
-            color: black;
-            border-bottom: 1px solid black;
+            color: $color-white;
+            border-bottom: 1px solid $color-white;
+            width: 100%;
+          }
+          ::placeholder {
+            color: $color-white;
+          }
+          select, button {
+            text-align: center;
+            background-color: $color-blue;
+            color: $color-black;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 5px 0 $color-white;
           }
           select {
-            text-align: center;
+            padding: 3.2px;
+          }
+          button {
+            width: max-content;
+            padding: 5px;
           }
         }
       }
     }
-  }
-  .tasks-plus-btn {
-    width: 80%;
-    margin: 0 auto;
   }
 }

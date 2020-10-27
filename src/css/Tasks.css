@@ -12,7 +12,7 @@
 }
 
 .tasks-container table tbody tr th {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #dff9fd;
 }
 
 .tasks-container table tbody tr th,
@@ -23,18 +23,56 @@
 .tasks-container table tbody tr th input,
 .tasks-container table tbody tr td input {
   font-family: main-font;
+  font-size: 0.9em;
   border: none;
-  color: black;
-  border-bottom: 1px solid black;
+  color: #dff9fd;
+  border-bottom: 1px solid #dff9fd;
+  width: 100%;
+}
+
+.tasks-container table tbody tr th ::-webkit-input-placeholder,
+.tasks-container table tbody tr td ::-webkit-input-placeholder {
+  color: #dff9fd;
+}
+
+.tasks-container table tbody tr th :-ms-input-placeholder,
+.tasks-container table tbody tr td :-ms-input-placeholder {
+  color: #dff9fd;
+}
+
+.tasks-container table tbody tr th ::-ms-input-placeholder,
+.tasks-container table tbody tr td ::-ms-input-placeholder {
+  color: #dff9fd;
+}
+
+.tasks-container table tbody tr th ::placeholder,
+.tasks-container table tbody tr td ::placeholder {
+  color: #dff9fd;
+}
+
+.tasks-container table tbody tr th select, .tasks-container table tbody tr th button,
+.tasks-container table tbody tr td select,
+.tasks-container table tbody tr td button {
+  text-align: center;
+  background-color: #00BFFF;
+  color: #092027;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 0 0 5px 0 #dff9fd;
+          box-shadow: 0 0 5px 0 #dff9fd;
 }
 
 .tasks-container table tbody tr th select,
 .tasks-container table tbody tr td select {
-  text-align: center;
+  padding: 3.2px;
 }
 
-.tasks-container .tasks-plus-btn {
-  width: 80%;
-  margin: 0 auto;
+.tasks-container table tbody tr th button,
+.tasks-container table tbody tr td button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px;
 }
 /*# sourceMappingURL=Tasks.css.map */

@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   font-size: 0.9em;
+  position: relative;
   .all-section-container {
     height: 100%;
     flex-grow: 1;
@@ -25,7 +26,7 @@
         section {
           .content {
             overflow: auto;
-            max-height: 20vh;
+            max-height: 15vh;
           }
         }
       }
@@ -38,21 +39,29 @@
     }
     section {
       text-align: center;
-      border: 2px solid $color-green;
+      border: 2px dotted $color-blue;
       border-radius: 10px;
       margin: 5px;
       flex-grow: 1;
       font-size: 0.9em;
+      padding: 3px;
       h2 {
         padding: 10px;
+        color: $color-blue;
       }
       .content {
         overflow: auto;
       }
     }
-    .stock-section {
-      padding: 0 5px 5px 5px;
-      overflow: hidden;
+  }
+  .loading-spinner-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
