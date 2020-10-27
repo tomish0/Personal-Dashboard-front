@@ -91,4 +91,9 @@
 .dashboard-container .all-section-container section .content {
   overflow: auto;
 }
+
+.dashboard-container .all-section-container .stock-section {
+  padding: 0 5px 5px 5px;
+  overflow: hidden;
+}
 /*# sourceMappingURL=Dashboard.css.map */

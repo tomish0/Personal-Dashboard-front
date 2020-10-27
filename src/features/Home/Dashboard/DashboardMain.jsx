@@ -31,9 +31,9 @@ function DashboardMain(props) {
           </div>
         </section>
       </div>
-      <section>
+      <section className="stock-section">
         <h2>US Stock Market</h2>
-        <div className="content">
+        <div >
           <Stock stockData={stockData} />
         </div>
       </section>

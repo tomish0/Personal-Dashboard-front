@@ -13,17 +13,17 @@ export const getNewsData = createAsyncThunk("", async (na, thunkAPI) => {
     .then((res) => {
       const newsData = [];
       const marketNewsData = [];
-      res.data.forEach((item) => {
+      for (var i = 0; i <= 20; i++) {
         var data = {
-          title: item.headline,
-          link: item.url,
+          title: res.data[i].headline,
+          link: res.data[i].url,
         };
-        if (item.category === "top news") {
+        if (res.data[i].category === "top news") {
           newsData.push(data);
         } else {
           marketNewsData.push(data);
         }
-      });
+      }
       thunkAPI.dispatch(addNewsData({ newsData, marketNewsData }));
       thunkAPI.dispatch(checkDataCollection({ haveNewsData: true }));
     })

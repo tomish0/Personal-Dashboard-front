@@ -124,37 +124,6 @@ function Tasks(props) {
     return newArray
   }
 
-  // useEffect(() => {
-  //   const userId =
-  //     loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
-  //   if (changeMade) {
-  //     var taskData = [...allTasks];
-  //     var data = [];
-  //     taskData.forEach((task) => {
-  //       if (task.task.length > 0) {
-  //         data.push(task);
-  //       }
-  //     });
-  //     var dataUserId = {
-  //       userId: userId,
-  //       data: data,
-  //     };
-  //     if (dataUserId.data.length !== 0) {
-  //       dispatch(postTasks(dataUserId));
-  //       console.log("dispatch");
-  //     }
-  //   }
-  // }, [dispatch, allTasks, changeMade, loginData.userId, signUpData.userId]);
-
-  // useEffect(() => {
-  //   const userId =
-  //     loginData.userId.length > 0 ? loginData.userId : signUpData.userId;
-  //   return () => {
-  //     // dispatch(postTasks(userId));
-  //     console.log('here');
-  //   };
-  // }, [dispatch, loginData.userId, signUpData.userId]);
-
   return (
     <div className="tasks-container">
       <TasksTable

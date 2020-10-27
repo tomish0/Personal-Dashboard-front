@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/Stock.scss"
+    ],
+    "names": [],
+    "file": "Stock.css"
+}
