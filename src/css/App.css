@@ -21,4 +21,10 @@
   color: #dff9fd;
   background-color: #092027;
 }
+
+button,
+select {
+  cursor: pointer;
+  outline: none;
+}
 /*# sourceMappingURL=App.css.map */

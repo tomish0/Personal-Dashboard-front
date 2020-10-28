@@ -14,14 +14,16 @@ export const getNewsData = createAsyncThunk("", async (na, thunkAPI) => {
       const newsData = [];
       const marketNewsData = [];
       for (var i = 0; i <= 20; i++) {
-        var data = {
-          title: res.data[i].headline,
-          link: res.data[i].url,
-        };
-        if (res.data[i].category === "top news") {
-          newsData.push(data);
-        } else {
-          marketNewsData.push(data);
+        if (res.data[i].headline.length > 0) {
+          var data = {
+            title: res.data[i].headline,
+            link: res.data[i].url,
+          };
+          if (res.data[i].category === "top news") {
+            newsData.push(data);
+          } else {
+            marketNewsData.push(data);
+          }
         }
       }
       thunkAPI.dispatch(addNewsData({ newsData, marketNewsData }));

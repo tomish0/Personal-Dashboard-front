@@ -6,4 +6,8 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+.weather-container * {
+  margin: 0 5px 0 5px;
+}
 /*# sourceMappingURL=Weather.css.map */

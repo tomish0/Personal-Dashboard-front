@@ -1,3 +1,45 @@
-.stock-options-container {
-    
+@import "./variables.scss";
+
+.stock-container {
+  .stock-options-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 70%;
+    .search-time-period-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      border: 2px dashed $color-blue;
+      border-radius: 5px;
+      z-index: 1;
+      input {
+        color: $color-white;
+        padding: 5px;
+        font-size: 0.9em;
+        width: 100%;
+        height: 30px;
+        border: none;
+        position: relative;
+      }
+      input:focus {
+        outline: none;
+      }
+      ::placeholder {
+        color: $color-white;
+      }
+    }
+  }
+  .stock-time-period {
+    // display: flex;
+    // align-items: flex-start;
+    height: 34px;
+    background-color: $color-blue;
+    color: $color-black;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 1px 3px 0 $color-white;
+    font-weight: bold;
+  }
 }

@@ -1,12 +1,16 @@
 import React from "react";
 
 function StockTimePeriod(props) {
-  const handleSetTimePeriod = (e) => {
-    props.setTimePeriod(e.target.value)
-  };
+  const { setTimePeriod, handleStockSelect } = props;
 
   return (
-    <select name="stock-time-period" id="stock-time-period" onChange={handleSetTimePeriod}>
+    <select
+      className="stock-time-period"
+      onChange={(e) => {
+        handleStockSelect(e.target.value, "timePeriod");
+        setTimePeriod(e.target.value);
+      }}
+    >
       <option value="M">Month</option>
       <option value="W">Week</option>
       <option value="D">Day</option>

@@ -13,3 +13,9 @@
   color: $color-white;
   background-color: $color-black;
 }
+
+button,
+select {
+  cursor: pointer;
+  outline: none;
+}

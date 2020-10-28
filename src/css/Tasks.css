@@ -59,8 +59,8 @@
   font-weight: bold;
   border-radius: 5px;
   border: none;
-  -webkit-box-shadow: 0 0 5px 0 #dff9fd;
-          box-shadow: 0 0 5px 0 #dff9fd;
+  -webkit-box-shadow: 0 1px 3px 0 #dff9fd;
+          box-shadow: 0 1px 3px 0 #dff9fd;
 }
 
 .tasks-container table tbody tr th select,

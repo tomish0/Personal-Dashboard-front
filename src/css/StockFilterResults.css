@@ -1,20 +1,26 @@
-.stock-filter-results-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(240px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 93%;
-  margin: 0 auto;
-  text-align: center;
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
 }
 
-.stock-filter-results-container .result {
-  border: 1px solid red;
+.stock-filter-results {
   width: 100%;
-  height: 100%;
+  color: #dff9fd;
+  background: none;
+  padding: 5px;
+  font-size: 0.9em;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  list-style-type: none;
+  overflow: auto;
+  z-index: 2;
+  max-height: 120px;
+}
+
+.stock-filter-results li {
+  padding: 5px;
 }
 /*# sourceMappingURL=StockFilterResults.css.map */
