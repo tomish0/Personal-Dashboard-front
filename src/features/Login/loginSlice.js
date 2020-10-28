@@ -24,7 +24,6 @@ export const login = createAsyncThunk(
         }
       })
       .catch((err) => {
-        console.dir(err);
         thunkAPI.dispatch(failedLogin());
       });
   }

@@ -4,3 +4,9 @@ header {
     justify-content: space-between;
   }
 }
+
+@media (max-width: 380px) {
+  header {
+    font-size: 0.9em;
+  }
+}

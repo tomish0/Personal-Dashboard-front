@@ -6,4 +6,10 @@ header .time-weather-container {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+@media (max-width: 380px) {
+  header {
+    font-size: 0.9em;
+  }
+}
 /*# sourceMappingURL=Header.css.map */

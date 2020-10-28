@@ -7,7 +7,7 @@ import "../../css/Authentication.css";
 function Authentication() {
   return (
       <div className="authentication-container">
-        <h1>Dev Challenge</h1>
+        <h1>Dashboard</h1>
         <Switch>
           <Route exact path="/Sign-Up" component={SignUp} />
           <Route exact path="/Login" component={Login} />

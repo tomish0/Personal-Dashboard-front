@@ -50,7 +50,7 @@ function Login(props) {
         <div className="buttons-app-nav">
           <Button btnMessage={"Login"} onClick={handleSubmit} />
           <div className="route-back">
-            New to the challenge?
+            New to the Dashboard?
             <Link to="/Sign-Up">
               <Button
                 btnMessage={"Sign Up"}

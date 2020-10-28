@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=Button.css.map */
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
+button {
+  background-color: #dff9fd;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1em;
+}
+/*# sourceMappingURL=Button.css.map */

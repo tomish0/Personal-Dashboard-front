@@ -5,9 +5,17 @@
 
 .login-container,
 .sign-up-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 100%;
-  height: 100%;
-  color: white;
+  height: 40vh;
 }
 
 .login-container .adjacent-input,
@@ -22,53 +30,72 @@
   font-family: main-font;
   border: none;
   background: none;
-  border-bottom: 2px solid white;
-  font-size: 0.9em;
+  border-bottom: 2px solid #dff9fd;
+  font-size: 20px;
+  color: #00BFFF;
 }
 
 .login-container .adjacent-input ::-webkit-input-placeholder,
 .sign-up-container .adjacent-input ::-webkit-input-placeholder {
-  color: white;
+  color: #00BFFF;
 }
 
 .login-container .adjacent-input :-ms-input-placeholder,
 .sign-up-container .adjacent-input :-ms-input-placeholder {
-  color: white;
+  color: #00BFFF;
 }
 
 .login-container .adjacent-input ::-ms-input-placeholder,
 .sign-up-container .adjacent-input ::-ms-input-placeholder {
-  color: white;
+  color: #00BFFF;
 }
 
 .login-container .adjacent-input ::placeholder,
 .sign-up-container .adjacent-input ::placeholder {
-  color: white;
+  color: #00BFFF;
+}
+
+.login-container input[type="password"],
+.sign-up-container input[type="password"] {
+  font-size: 25px;
+}
+
+.login-container input[type="password"]::-webkit-input-placeholder,
+.sign-up-container input[type="password"]::-webkit-input-placeholder {
+  font-size: 20px;
+}
+
+.login-container input[type="password"]:-ms-input-placeholder,
+.sign-up-container input[type="password"]:-ms-input-placeholder {
+  font-size: 20px;
+}
+
+.login-container input[type="password"]::-ms-input-placeholder,
+.sign-up-container input[type="password"]::-ms-input-placeholder {
+  font-size: 20px;
+}
+
+.login-container input[type="password"]::placeholder,
+.sign-up-container input[type="password"]::placeholder {
+  font-size: 20px;
 }
 
 .login-container .fail-message,
 .sign-up-container .fail-message {
   text-align: center;
-  color: #ffe260;
+  color: #00BFFF;
+  margin: 10px;
 }
 
 .login-container .fail-message ul,
 .sign-up-container .fail-message ul {
+  padding: 0;
   list-style: none;
 }
 
 .login-container .fail-message *,
 .sign-up-container .fail-message * {
   margin: 8px;
-}
-
-.login-container .buttons-app-nav-position,
-.sign-up-container .buttons-app-nav-position {
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .login-container .buttons-app-nav-position .buttons-app-nav,
@@ -103,7 +130,7 @@
   width: -moz-max-content;
   width: max-content;
   font-size: 1em;
-  color: #ffe260;
+  color: #00BFFF;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -122,7 +149,8 @@
 }
 
 @media (max-width: 470px) {
-  .adjacent-input {
+  .login-container .adjacent-input,
+  .sign-up-container .adjacent-input {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -132,10 +160,101 @@
             align-items: center;
     text-align: center;
   }
-  .adjacent-input input {
+  .login-container .adjacent-input input,
+  .sign-up-container .adjacent-input input {
+    font-size: 16px;
     width: 80%;
-    margin: 20px;
+    margin: 15px;
     text-align: center;
+  }
+  .login-container input[type="password"],
+  .sign-up-container input[type="password"] {
+    font-size: 20px;
+  }
+  .login-container input[type="password"]::-webkit-input-placeholder,
+  .sign-up-container input[type="password"]::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]:-ms-input-placeholder,
+  .sign-up-container input[type="password"]:-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]::-ms-input-placeholder,
+  .sign-up-container input[type="password"]::-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]::placeholder,
+  .sign-up-container input[type="password"]::placeholder {
+    font-size: 16px;
+  }
+  .login-container .fail-message,
+  .sign-up-container .fail-message {
+    margin: 5px;
+    font-size: 0.8em;
+  }
+  .login-container .fail-message *,
+  .sign-up-container .fail-message * {
+    margin: 5px;
+  }
+  .login-container .buttons-app-nav-position .buttons-app-nav button,
+  .sign-up-container .buttons-app-nav-position .buttons-app-nav button {
+    margin: 5px auto;
+    font-size: 0.9em;
+  }
+  .login-container .buttons-app-nav-position .buttons-app-nav .route-back,
+  .sign-up-container .buttons-app-nav-position .buttons-app-nav .route-back {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .adjacent-input {
+    margin: 10px auto;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .login-container .adjacent-input input,
+  .sign-up-container .adjacent-input input {
+    font-size: 16px;
+  }
+  .login-container input[type="password"],
+  .sign-up-container input[type="password"] {
+    font-size: 20px;
+  }
+  .login-container input[type="password"]::-webkit-input-placeholder,
+  .sign-up-container input[type="password"]::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]:-ms-input-placeholder,
+  .sign-up-container input[type="password"]:-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]::-ms-input-placeholder,
+  .sign-up-container input[type="password"]::-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .login-container input[type="password"]::placeholder,
+  .sign-up-container input[type="password"]::placeholder {
+    font-size: 16px;
+  }
+  .login-container .fail-message,
+  .sign-up-container .fail-message {
+    margin: 5px;
+    font-size: 0.8em;
+  }
+  .login-container .fail-message *,
+  .sign-up-container .fail-message * {
+    margin: 5px;
+  }
+  .login-container .buttons-app-nav-position .buttons-app-nav button,
+  .sign-up-container .buttons-app-nav-position .buttons-app-nav button {
+    margin: 5px auto;
+    font-size: 0.9em;
+  }
+  .login-container .buttons-app-nav-position .buttons-app-nav .route-back,
+  .sign-up-container .buttons-app-nav-position .buttons-app-nav .route-back {
+    font-size: 0.8em;
   }
 }
 /*# sourceMappingURL=LoginSignUp.css.map */

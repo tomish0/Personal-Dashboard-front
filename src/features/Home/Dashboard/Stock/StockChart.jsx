@@ -3,7 +3,7 @@ import Plot from "react-plotly.js";
 import "../../../../css/StockChart.css";
 
 function StockChart(props) {
-  const { dateValues, openValues, closeValues, highValues, lowValues } = props;
+  const { dateValues, openValues, closeValues, highValues, lowValues, containerWidth } = props;
 
   const dates = [];
   dateValues.forEach((date) => {
@@ -67,6 +67,9 @@ function StockChart(props) {
       type: "linear",
       color: "rgb(200, 200, 200)",
     },
+    width: containerWidth * 0.9,
+    height: containerWidth / 1.7,
+    autoresize: true
   };
 
   var config = { displayModeBar: false };

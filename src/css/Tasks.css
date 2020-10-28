@@ -58,6 +58,7 @@
   color: #092027;
   font-weight: bold;
   border-radius: 5px;
+  font-size: 0.9em;
   border: none;
   -webkit-box-shadow: 0 1px 3px 0 #dff9fd;
           box-shadow: 0 1px 3px 0 #dff9fd;
@@ -74,5 +75,6 @@
   width: -moz-max-content;
   width: max-content;
   padding: 5px;
+  height: 50%;
 }
 /*# sourceMappingURL=Tasks.css.map */

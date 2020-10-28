@@ -26,12 +26,14 @@ function StockOptions(props) {
   const [stock, setStock] = useState({});
 
   const handleStockSelect = (value, type) => {
+    if (stock.symbol && type === "timePeriod" || type === "stock") {
     dispatch(
       getStock({
         stock: type === "stock" ? value : stock.symbol,
         timePeriod: type === "timePeriod" ? value : timePeriod,
       })
     );
+    }
   };
 
   return (

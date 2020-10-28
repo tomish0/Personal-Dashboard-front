@@ -1,13 +1,44 @@
-.authentication-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: blue;
-}
-  
-  @media (max-width: 350px) {
-      h1 {
-          font-size: 1.7em;
-      }
+@import "variables.scss";
 
+.authentication-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  h1 {
+    color: $color-blue;
   }
+}
+
+@media (max-width: 470px) {
+  .authentication-container {
+    justify-content: space-evenly;
+    h1 {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-height: 800px) and (orientation: landscape) {
+  .authentication-container {
+    justify-content: space-evenly;
+    // h1 {
+    //   font-size: 1.5em;
+    // }
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .authentication-container {
+    justify-content: space-around;
+    h1 {
+      font-size: 1.6em;
+    }
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .authentication-container {
+    justify-content: space-between;
+  }
+}

@@ -12,7 +12,6 @@ export const signUp = createAsyncThunk(
       data: data,
     })
       .then((res) => {
-        console.log(res);
         if (res.data.resUsername === 1) {
           thunkAPI.dispatch(failedSignUp({ username: true }));
         }
@@ -32,7 +31,6 @@ export const signUp = createAsyncThunk(
         }
       })
       .catch((err) => {
-        console.dir(err);
         thunkAPI.dispatch(failedSignUp({ err: true }));
       });
   }

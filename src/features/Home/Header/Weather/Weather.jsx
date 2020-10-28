@@ -10,19 +10,21 @@ function WeatherLink(props) {
   return (
     <div className="weather-container">
       <div>{currentWeather.temperature} °</div>
-      <img
-        src={
-          currentWeather.icon === "Rain"
-            ? rainIcon
-            : currentWeather.icon === "Clouds"
-            ? cloudsIcon
-            : currentWeather.icon === "Sun"
-            ? sunIcon
-            : null
-        }
-        alt="weather-icon"
-      />
-      <div>{currentWeather.location}</div>
+      <div className="img-container">
+        <img
+          src={
+            currentWeather.icon === "Rain"
+              ? rainIcon
+              : currentWeather.icon === "Clouds"
+              ? cloudsIcon
+              : currentWeather.icon === "Sun"
+              ? sunIcon
+              : null
+          }
+          alt="weather-icon"
+        />
+      </div>
+      <div className="location">{currentWeather.location}</div>
     </div>
   );
 }

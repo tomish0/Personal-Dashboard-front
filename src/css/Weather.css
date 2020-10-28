@@ -10,4 +10,22 @@
 .weather-container * {
   margin: 0 5px 0 5px;
 }
+
+.weather-container .img-container {
+  width: 50px;
+}
+
+.weather-container .img-container img {
+  width: 100%;
+}
+
+.weather-container .location {
+  margin-right: 0;
+}
+
+@media (max-width: 500px) {
+  .weather-container * {
+    margin: 0 2px 0 2px;
+  }
+}
 /*# sourceMappingURL=Weather.css.map */

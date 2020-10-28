@@ -12,10 +12,18 @@
   flex-direction: column;
   color: $color-white;
   background-color: $color-black;
+  overflow: auto;
 }
 
 button,
 select {
   cursor: pointer;
   outline: none;
+}
+
+@media (max-width: 500px) {
+  .App {
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+  }
 }

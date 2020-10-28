@@ -10,7 +10,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin: 20px auto;
-  width: 70%;
+  max-width: 50vw;
 }
 
 .stock-container .stock-options-container .search-time-period-container {
@@ -24,10 +24,11 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 80%;
+  width: 100%;
   border: 2px dashed #00BFFF;
   border-radius: 5px;
   z-index: 1;
+  margin-right: 10px;
 }
 
 .stock-container .stock-options-container .search-time-period-container input {
@@ -38,6 +39,7 @@
   height: 30px;
   border: none;
   position: relative;
+  text-align: center;
 }
 
 .stock-container .stock-options-container .search-time-period-container input:focus {
@@ -61,7 +63,7 @@
 }
 
 .stock-container .stock-time-period {
-  height: 34px;
+  height: 30px;
   background-color: #00BFFF;
   color: #092027;
   border-radius: 5px;
@@ -69,5 +71,6 @@
   -webkit-box-shadow: 0 1px 3px 0 #dff9fd;
           box-shadow: 0 1px 3px 0 #dff9fd;
   font-weight: bold;
+  font-size: 0.9em;
 }
 /*# sourceMappingURL=Stock.css.map */

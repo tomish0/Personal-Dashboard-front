@@ -20,11 +20,19 @@
           flex-direction: column;
   color: #dff9fd;
   background-color: #092027;
+  overflow: auto;
 }
 
 button,
 select {
   cursor: pointer;
   outline: none;
+}
+
+@media (max-width: 500px) {
+  .App {
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

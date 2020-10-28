@@ -5,12 +5,24 @@
 
 h1 {
   text-align: center;
-  margin: 0 0 40px 0;
+  margin: 10px 0 40px 0;
   color: #dff9fd;
 }
 
 h1 span {
   color: #00BFFF;
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    margin: 10px 0 20px 0;
+  }
+}
+
+@media (max-height: 415px) and (orientation: landscape) {
+  h1 {
+    margin: 10px 0 20px 0;
+  }
 }
 /*# sourceMappingURL=WelcomeMessage.css.map */

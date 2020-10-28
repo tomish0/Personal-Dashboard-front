@@ -1,3 +1,8 @@
+@font-face {
+  font-family: main-font;
+  src: url("../Assets/Montserrat-Light.ttf");
+}
+
 .authentication-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,12 +14,49 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: blue;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
-@media (max-width: 350px) {
-  h1 {
-    font-size: 1.7em;
+.authentication-container h1 {
+  color: #00BFFF;
+}
+
+@media (max-width: 470px) {
+  .authentication-container {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .authentication-container h1 {
+    margin-top: 0;
+  }
+}
+
+@media (max-height: 800px) and (orientation: landscape) {
+  .authentication-container {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .authentication-container {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .authentication-container h1 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .authentication-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 /*# sourceMappingURL=Authentication.css.map */
