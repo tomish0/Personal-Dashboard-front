@@ -47,7 +47,7 @@ function Home(props) {
       <Route path="/" exact component={Home}>
         <Redirect to="/Home" />
       </Route>
-      <Route exact path="/:a(login|signup)">
+      <Route exact path="/:a(login|sign-up)">
         <Redirect to="/Home" />
       </Route>
       <Dashboard username={props.username} />

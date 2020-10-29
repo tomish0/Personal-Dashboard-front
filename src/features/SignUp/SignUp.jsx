@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUp, selectSignUp } from "./signUpSlice";
 import Button from "../Button/Button";
+import { useEffect } from "react";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -33,22 +34,20 @@ function SignUp() {
   const [signUpFail, setSignUpFail] = useState(false);
 
   const handleSubmit = () => {
-    setPreValidation({
-      ...preValidation,
-      usernameLength: signUpDetails.username.length > 0 ? true : false,
-      emailLength:
-        signUpDetails.email.length > 0 && signUpDetails.email.includes("@")
-          ? true
-          : false,
-      passwordLength: signUpDetails.password.length >= 8 ? true : false,
-      passwordMatch:
-        signUpDetails.checkPassword === signUpDetails.password ? true : false,
-    });
+    var usernameLength = signUpDetails.username.length > 0 ? true : false;
+    var emailLength =
+      signUpDetails.email.length > 0 && signUpDetails.email.includes("@")
+        ? true
+        : false;
+    var passwordLength = signUpDetails.password.length >= 8 ? true : false;
+    var passwordMatch =
+      signUpDetails.checkPassword === signUpDetails.password ? true : false;
+
     if (
-      preValidation.usernameLength &&
-      preValidation.emailLength &&
-      preValidation.passwordLength &&
-      preValidation.passwordMatch
+      usernameLength &&
+      emailLength &&
+      passwordLength &&
+      passwordMatch
     ) {
       var data = {
         username: signUpDetails.username,
