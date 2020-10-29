@@ -1,13 +1,13 @@
 var remote = true;
 
-var isengard = "https://api.isengardcoding.com";
+var tomish = "https://api.tomish.me";
 
 var localhost = "http://localhost:5000";
 
 var domain;
 
 if (remote) {
-  domain = isengard;
+  domain = tomish;
 } else {
   domain = localhost;
 }
