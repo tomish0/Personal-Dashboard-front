@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signUp, selectSignUp } from "./signUpSlice";
 import Button from "../Button/Button";
-import { useEffect } from "react";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -43,12 +42,7 @@ function SignUp() {
     var passwordMatch =
       signUpDetails.checkPassword === signUpDetails.password ? true : false;
 
-    if (
-      usernameLength &&
-      emailLength &&
-      passwordLength &&
-      passwordMatch
-    ) {
+    if (usernameLength && emailLength && passwordLength && passwordMatch) {
       var data = {
         username: signUpDetails.username,
         email: signUpDetails.email,
@@ -57,6 +51,12 @@ function SignUp() {
       dispatch(signUp(data));
     } else {
       setSignUpFail(true);
+      setPreValidation({
+        usernameLength,
+        emailLength,
+        passwordLength,
+        passwordMatch,
+      });
     }
   };
 
