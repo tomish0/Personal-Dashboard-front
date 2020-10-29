@@ -56,10 +56,15 @@ export const signUpSlice = createSlice({
       state.failedLogin.email = email;
       state.failedLogin.err = err;
     },
+    undoSignUpFail: (state) => {
+      state.failedLogin.username = false;
+      state.failedLogin.email = false;
+      state.failedLogin.err = false;
+    }
   },
 });
 
-export const { addUserIdUsername, failedSignUp } = signUpSlice.actions; // export reducers to be called in comps
+export const { addUserIdUsername, failedSignUp, undoSignUpFail } = signUpSlice.actions; // export reducers to be called in comps
 
 // export the current store state
 export const selectSignUp = (state) => state.signUp;

@@ -45,10 +45,13 @@ export const loginSlice = createSlice({
     failedLogin: (state) => {
       state.failedLogin = true;
     },
+    undoLoginFail: (state) => {
+      state.failedLogin = false;
+    },
   },
 });
 
-export const { addUserIdUsername, failedLogin } = loginSlice.actions; // export reducers to be called in comps
+export const { addUserIdUsername, failedLogin, undoLoginFail } = loginSlice.actions; // export reducers to be called in comps
 
 // export the current store state
 export const selectLogin = (state) => state.login;

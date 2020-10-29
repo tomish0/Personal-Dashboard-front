@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {login, selectLogin} from './loginSlice'
+import { login, selectLogin, undoLoginFail } from "./loginSlice";
 import Button from "../Button/Button";
 import "../../css/LoginSignUp.css";
 
 function Login(props) {
   const dispatch = useDispatch();
 
-  const loginData = useSelector(selectLogin) 
+  const loginData = useSelector(selectLogin);
 
   const [loginDetails, setLoginDetails] = useState({
     username: "",
@@ -26,6 +26,13 @@ function Login(props) {
   const handleSubmit = () => {
     dispatch(login(loginDetails));
   };
+
+  // clean up fail in redux state
+  useEffect(() => {
+    return () => {
+      dispatch(undoLoginFail());
+    };
+  }, [dispatch]);
 
   return (
     <div onSubmit={handleSubmit} className="login-container">
@@ -45,7 +52,11 @@ function Login(props) {
           onChange={handleLoginDetails}
         />
       </div>
-      {loginData.failedLogin ? <div className='fail-message'>Your username or password is incorrect</div> : null}
+      {loginData.failedLogin ? (
+        <div className="fail-message">
+          Your username or password is incorrect
+        </div>
+      ) : null}
       <div className="buttons-app-nav-position">
         <div className="buttons-app-nav">
           <Button btnMessage={"Login"} onClick={handleSubmit} />

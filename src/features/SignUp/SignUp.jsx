@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { signUp, selectSignUp } from "./signUpSlice";
+import { signUp, selectSignUp, undoSignUpFail } from "./signUpSlice";
 import Button from "../Button/Button";
+import { useEffect } from "react";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ function SignUp() {
         password: signUpDetails.password,
       };
       dispatch(signUp(data));
+      setSignUpFail(false);
     } else {
       setSignUpFail(true);
       setPreValidation({
@@ -59,6 +61,13 @@ function SignUp() {
       });
     }
   };
+
+  // clean up fail in redux state
+  useEffect(() => {
+    return () => {
+      dispatch(undoSignUpFail());
+    };
+  }, [dispatch]);
 
   return (
     <div onSubmit={handleSubmit} className="sign-up-container">
@@ -111,14 +120,19 @@ function SignUp() {
             ) : null}
           </ul>
         ) : null}
-        {signUpData.failedLogin.err ? (
-          <div>Please fill in your details</div>
-        ) : signUpData.failedLogin.username && signUpData.failedLogin.email ? (
-          <div>Both the username and email are already taken</div>
-        ) : signUpData.failedLogin.username ? (
-          <div>The username is already taken</div>
-        ) : signUpData.failedLogin.email ? (
-          <div>This email is already taken </div>
+        {!signUpFail ? (
+          <div>
+            {signUpData.failedLogin.err ? (
+              <div>Please fill in your details</div>
+            ) : signUpData.failedLogin.username &&
+              signUpData.failedLogin.email ? (
+              <div>Both the username and email are already taken</div>
+            ) : signUpData.failedLogin.username ? (
+              <div>The username is already taken</div>
+            ) : signUpData.failedLogin.email ? (
+              <div>This email is already taken </div>
+            ) : null}
+          </div>
         ) : null}
       </div>
       <div className="buttons-app-nav-position">
