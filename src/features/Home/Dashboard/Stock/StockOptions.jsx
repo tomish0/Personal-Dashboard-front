@@ -26,7 +26,8 @@ function StockOptions(props) {
   const [stock, setStock] = useState({});
 
   const handleStockSelect = (value, type) => {
-    if (stock.symbol && type === "timePeriod" || type === "stock") {
+    // eslint-disable-next-line
+    if (type === "stock" || stock.symbol && type === "timePeriod") {
     dispatch(
       getStock({
         stock: type === "stock" ? value : stock.symbol,

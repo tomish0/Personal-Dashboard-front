@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import homeSlice from "../features/Home/homeSlice";
 import loginSlice from "../features/Login/loginSlice";
 import signUpSlice from "../features/SignUp/signUpSlice";
@@ -18,11 +18,5 @@ export default configureStore({
     tasks: tasksSlice,
     stock: stockSlice,
     weather: weatherSlice,
-    // middleware: () =>
-    //   getDefaultMiddleware({
-    //     thunk: false,
-    //     serializableCheck: false,
-    //     immutableStateInvariant: false,
-    //   }),
   },
 });

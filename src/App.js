@@ -4,20 +4,19 @@ import { selectLogin } from "./features/Login/loginSlice";
 import { selectSignUp } from "./features/SignUp/signUpSlice";
 import Authentication from "./features/Authentication/Authentication";
 import Home from "./features/Home/Home";
-import backgroundImage from "./Assets/Background.jpg";
 import "./css/App.css";
 
 function App() {
   const loginData = useSelector(selectLogin);
   const signUpData = useSelector(selectSignUp);
 
-  var development = false ? true : false
+  var development = false ? true : false;
 
   return (
-    <div className="App" 
-    // style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      {development || loginData.userId.length > 0 || signUpData.userId.length > 0 ? (
+    <div className="App">
+      {development ||
+      loginData.userId.length > 0 ||
+      signUpData.userId.length > 0 ? (
         <Home
           username={
             loginData.username.length > 0

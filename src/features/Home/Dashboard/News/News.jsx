@@ -8,7 +8,7 @@ function News(props) {
         {props.news.map((item, index) => {
           return (
             <li key={index}>
-              <a href={item.link} target="_blank">
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
                 {item.title}
               </a>
             </li>

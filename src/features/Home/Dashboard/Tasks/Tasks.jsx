@@ -87,8 +87,8 @@ function Tasks(props) {
         return item.priority === "Low";
       });
       if (lowIndex !== -1) {
-        var highPriorityTasks = newArray.slice(0, lowIndex);
-        var lowPriorityTasks = newArray.slice(lowIndex);
+        var highPriorityTasks = newArray.slice(0, lowIndex - 1);
+        var lowPriorityTasks = newArray.slice(lowIndex - 1);
         setAllTasks(() => [
           ...highPriorityTasks,
           taskObject,

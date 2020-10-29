@@ -21,7 +21,7 @@ function Stock(props) {
     window.onresize = () => {
       setContainerWidth(ref.current.offsetWidth);
     };
-  }, [ref.current]);
+  }, []);
 
   return (
     <div className="stock-container" ref={ref}>

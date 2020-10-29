@@ -68,7 +68,7 @@ function StockChart(props) {
       color: "rgb(200, 200, 200)",
     },
     width: containerWidth * 0.9,
-    height: containerWidth / 1.7,
+    height: containerWidth / 1.9,
     autoresize: true
   };
 
