@@ -50,7 +50,6 @@ export const addNewTask = createAsyncThunk("", async (data, thunkAPI) => {
     headers: { userid: data.userId },
   })
     .then((res) => {
-      console.log(res.data);
       thunkAPI.dispatch(getTasksData(data.userId));
     })
     .catch((err) => {
