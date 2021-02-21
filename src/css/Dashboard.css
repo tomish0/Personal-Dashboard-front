@@ -119,6 +119,15 @@
           align-items: center;
 }
 
+.dashboard-container .chrome-location-services {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  text-align: center;
+}
+
 @media (max-width: 800px) {
   .dashboard-container .all-section-container .news-tasks-sections-container {
     -webkit-box-orient: vertical;
