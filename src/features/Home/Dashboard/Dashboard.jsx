@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Loader from 'react-loader-spinner';
 import {useSelector} from 'react-redux';
 import {selectWeather} from '../Header/Weather/weatherSlice';
