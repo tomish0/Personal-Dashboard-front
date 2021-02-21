@@ -41,7 +41,7 @@ function Home(props) {
       () => {
         setNavigatorErr(true);
       },
-      {timeout: 7000}
+      {timeout: 10000}
     );
   }, [dispatch, loginData.userId, signUpData.userId]);
 
